@@ -1,0 +1,11 @@
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.exe
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.pdb
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.xml
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbprojAssemblyReference.cache
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormCheckingOrder.resources
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.Resources.resources
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbproj.GenerateResource.cache
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbproj.CoreCompileInputs.cache
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.exe
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.xml
+C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.pdb

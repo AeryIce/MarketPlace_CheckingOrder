@@ -9,3 +9,15 @@ C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_Ch
 C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.exe
 C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.xml
 C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.pdb
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.exe
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.pdb
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.xml
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbprojAssemblyReference.cache
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormCheckingOrder.resources
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.Resources.resources
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbproj.GenerateResource.cache
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbproj.CoreCompileInputs.cache
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.exe
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.xml
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.pdb
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.exe.config

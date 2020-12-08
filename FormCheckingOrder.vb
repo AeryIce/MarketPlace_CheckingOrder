@@ -78,7 +78,7 @@ Public Class FormCheckingOrder
 					Dim NamaFile = CariFile.FileName
 					Dim ConnEx As New OleDbConnection(" Provider = Microsoft.ACE.OLEDB.12.0; Data Source = '" & NamaFile & "';Extended Properties = ""Excel 12.0 xml;HDR = Yes""")
 					ConnEx.Open()
-					Dim DaEx As New OleDbDataAdapter("SELECT * FROM [Sheet1$A5:AB5000]", ConnEx)
+					Dim DaEx As New OleDbDataAdapter("SELECT * FROM [Sheet1$A4:AB5000]", ConnEx)
 					DaEx.TableMappings.Add("'" & NamaFile & "'", "MP_CheckingOrder")
 					Dim DsEx As New DataSet
 					DaEx.Fill(DsEx)
@@ -88,22 +88,37 @@ Public Class FormCheckingOrder
 					ConnEs.Open()
 					Dim DrwEs As DataRow
 					Dim DrEs As SqlDataReader
+					Dim CmdEs As SqlCommand
 
 					For Each DrwEs In DsEx.Tables(0).Rows
 
-						Dim CmdEs As New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Proses_Status,Tanggal_Proses) VALUES ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(1).ToString & "','" & DrwEs(2).ToString & "',
+						CmdEs = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Proses_Status,Tanggal_Proses) VALUES ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(1).ToString & "','" & DrwEs(5).ToString & "','" & DrwEs(2).ToString & "',
 												'" & DrwEs(23).ToString & "','" & DrwEs(8).ToString & "'," & DrwEs(7) & "," & DrwEs(10) & "," & DrwEs(19) & ",'" & Loc & "','1','" & Tanggal & "' ) ", ConnEs)
 						DrEs = CmdEs.ExecuteReader
 						DrEs.Close()
+
 					Next
 
+
+					Dim CmdEsDup As SqlCommand
+					CmdEsDup = New SqlCommand("
+					WITH DUP As (SELECT MP,Order_ID,Tokped_ProductId,Invoice,Resi,Isbn,Qty,Harga,Ongkir,[Location],Proses_Status,Tanggal_proses,ROW_NUMBER() 
+					OVER(
+					PARTITION BY
+					MP,Order_ID,Tokped_ProductId,Invoice,Resi,Isbn,Qty,Harga,Ongkir,[Location],Proses_Status,Tanggal_proses
+					ORDER BY
+					MP,Order_ID,Tokped_ProductId,Invoice,Resi,Isbn,Qty,Harga,Ongkir,[Location],Proses_Status,Tanggal_proses)
+					ROW_NUM FROM MP_CheckingOrder)
+					DELETE FROM DUP WHERE ROW_NUM > 1)", ConnEs)
+					Dim DrEsDup As SqlDataReader
+					DrEsDup = CmdEsDup.ExecuteReader
+					DrEsDup.Close()
+
 					ConnEs.Close()
+
 					MsgBox("Wis Rampung")
+
 					DGV_MPCheckingOrder.Update()
-
-
-
-
 				End If
 			Catch ex As Exception
 
@@ -138,6 +153,14 @@ Public Class FormCheckingOrder
 					ConnEs.Open()
 					Dim DrwEs As DataRow
 					Dim DrEs As SqlDataReader
+
+					Dim HargaAwal As String = DrwEs(15)
+					Dim harga As String = HargaAwal.Replace("Rp", String.Empty)
+					HargaAwal = harga.Replace(".", String.Empty)
+
+					Dim Ongkir As String = DrwEs(33)
+					Dim HargaOngkir As String = Ongkir.Replace("Rp", String.Empty)
+					HargaOngkir = HargaOngkir.Replace(".", String.Empty)
 
 					For Each DrwEs In DsEx.Tables(0).Rows
 						Dim CmdEs As New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Proses_Status,Tanggal_Proses) 

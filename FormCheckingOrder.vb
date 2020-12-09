@@ -92,29 +92,50 @@ Public Class FormCheckingOrder
 
 					For Each DrwEs In DsEx.Tables(0).Rows
 
-						CmdEs = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Proses_Status,Tanggal_Proses) VALUES ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(1).ToString & "','" & DrwEs(5).ToString & "','" & DrwEs(2).ToString & "',
-												'" & DrwEs(23).ToString & "','" & DrwEs(8).ToString & "'," & DrwEs(7) & "," & DrwEs(10) & "," & DrwEs(19) & ",'" & Loc & "','1','" & Tanggal & "' ) ", ConnEs)
+						CmdEs = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Tanggal_Proses) VALUES ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(1).ToString & "','" & DrwEs(5).ToString & "','" & DrwEs(2).ToString & "',
+												'" & DrwEs(23).ToString & "','" & DrwEs(8).ToString & "'," & DrwEs(7) & "," & DrwEs(10) & "," & DrwEs(19) & ",'" & Loc & "','" & Tanggal & "' ) ", ConnEs)
 						DrEs = CmdEs.ExecuteReader
 						DrEs.Close()
 
 					Next
 
-
+					Dim ConnEsDup As SqlConnection
+					ConnEsDup = New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS; Initial Catalog = INV ; Integrated Security = True")
+					ConnEsDup.Open()
 					Dim CmdEsDup As SqlCommand
 					CmdEsDup = New SqlCommand("
-					WITH DUP As (SELECT MP,Order_ID,Tokped_ProductId,Invoice,Resi,Isbn,Qty,Harga,Ongkir,[Location],Proses_Status,Tanggal_proses,ROW_NUMBER() 
-					OVER(
-					PARTITION BY
-					MP,Order_ID,Tokped_ProductId,Invoice,Resi,Isbn,Qty,Harga,Ongkir,[Location],Proses_Status,Tanggal_proses
+					WITH DUP AS( 
+					SELECT 
+					MP,
+					Order_ID,
+					Tokped_ProductId,
+					Invoice,
+					Proses_Status,
+					ROW_NUMBER() OVER(
+						PARTITION BY
+						MP,
+						Order_ID,
+						Tokped_ProductId,
+						Invoice,
+						Proses_Status
 					ORDER BY
-					MP,Order_ID,Tokped_ProductId,Invoice,Resi,Isbn,Qty,Harga,Ongkir,[Location],Proses_Status,Tanggal_proses)
-					ROW_NUM FROM MP_CheckingOrder)
-					DELETE FROM DUP WHERE ROW_NUM > 1)", ConnEs)
-					Dim DrEsDup As SqlDataReader
-					DrEsDup = CmdEsDup.ExecuteReader
-					DrEsDup.Close()
+						MP,
+						Order_ID,
+						Tokped_ProductId,
+						Invoice,
+						Proses_Status
+					)ROW_NUM 
+					FROM MP_CheckingOrder)
+					DELETE FROM DUP
+					WHERE ROW_NUM > 1 AND Proses_Status IS NULL", ConnEsDup)
+
+					Dim DrEsDUp As SqlDataReader
+					DrEsDUp = CmdEsDup.ExecuteReader
+					DrEsDUp.Close()
 
 					ConnEs.Close()
+					ConnEsDup.Close()
+
 
 					MsgBox("Wis Rampung")
 

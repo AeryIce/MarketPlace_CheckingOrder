@@ -12,7 +12,6 @@ C:\Users\AeryIce\source\repos\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_Ch
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.exe
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.pdb
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.xml
-E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbprojAssemblyReference.cache
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormCheckingOrder.resources
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.Resources.resources
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbproj.GenerateResource.cache
@@ -23,3 +22,4 @@ E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.p
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.exe.config
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\Microsoft.Office.Interop.Excel.dll
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbproj.CopyComplete
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbprojAssemblyReference.cache

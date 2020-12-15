@@ -7,57 +7,13 @@ Public Class FormCheckingOrder
 	End Sub
 
 	Private Sub FormCheckingOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		'TODO: This line of code loads data into the 'INVDataSet.MP_CheckingOrder' table. You can move, or remove it, as needed.
-		Me.MP_CheckingOrderTableAdapter.Fill(Me.INVDataSet.MP_CheckingOrder)
+
 		Call Konek()
 		ComboBoxPilihMP.Items.Add("TokoPedia")
 		ComboBoxPilihMP.Items.Add("Shopee")
 
 	End Sub
 
-	'Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
-
-	'	If ComboBoxPilihMP.Text = "TokoPedia" Then
-	'		Try
-	'			Dim CariFile As New OpenFileDialog
-	'			With CariFile
-	'				.Filter = " Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.* "
-	'				.FilterIndex = 1
-	'				.Title = "Pilih File"
-	'			End With
-
-	'			If CariFile.ShowDialog() = Windows.Forms.DialogResult.OK Then
-	'				Dim NamaFile = CariFile.FileName
-	'				Dim ConnEx As New OleDbConnection(" Provider = Microsoft.ACE.OLEDB.12.0; Data Source = '" & NamaFile & "';Extended Properties = ""Excel 12.0 xml;HDR = Yes""")
-	'				ConnEx.Open()
-	'				Dim DaEx As New OleDbDataAdapter("SELECT * FROM [Sheet1$A5:AB100]", ConnEx)
-	'				DaEx.TableMappings.Add("'" & NamaFile & "'", "MP_CheckingOrder")
-	'				Dim DsEx As New DataSet
-	'				DaEx.Fill(DsEx)
-	'				ConnEx.Close()
-
-	'				Call Konek()
-	'				ConnEs.Open()
-	'				For Each DrwEs In DsEx.Tables(0).Rows
-
-	'					CmdEs = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Proses_Status,Tanggal_Proses) VALUES ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(1).ToString & "','" & DrwEs(2).ToString & "',
-	'											'" & DrwEs(23).ToString & "','" & DrwEs(8).ToString & "'," & DrwEs(7) & "," & DrwEs(10) & "," & DrwEs(19) & ",'PP343','1','' ) ", ConnEs)
-	'					DrEs = CmdEs.ExecuteReader
-
-	'				Next
-
-	'				ConnEs.Close()
-	'				MsgBox("Wis Rampung")
-
-	'			End If
-	'		Catch ex As Exception
-
-	'		End Try
-	'	Else
-	'		MsgBox("Sik Rung Rampung")
-	'	End If
-
-	'End Sub
 	Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
 
 		If ComboBoxPilihMP.Text = "TokoPedia" Then
@@ -99,6 +55,9 @@ Public Class FormCheckingOrder
 
 					Next
 
+
+					ConnEs.Close()
+
 					Dim ConnEsDup As SqlConnection
 					ConnEsDup = New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS; Initial Catalog = INV ; Integrated Security = True")
 					ConnEsDup.Open()
@@ -110,36 +69,36 @@ Public Class FormCheckingOrder
 					Order_ID,
 					Tokped_ProductId,
 					Invoice,
-					Proses_Status,
+					Isbn,
+					
 					ROW_NUMBER() OVER(
 						PARTITION BY
 						MP,
 						Order_ID,
 						Tokped_ProductId,
 						Invoice,
-						Proses_Status
+						Isbn
+						
 					ORDER BY
 						MP,
 						Order_ID,
 						Tokped_ProductId,
-						Invoice,
-						Proses_Status
+						Invoice
+						Isbn
 					)ROW_NUM 
 					FROM MP_CheckingOrder)
 					DELETE FROM DUP
-					WHERE ROW_NUM > 1 AND Proses_Status IS NULL", ConnEsDup)
+					WHERE ROW_NUM > 1 ", ConnEsDup)
 
 					Dim DrEsDUp As SqlDataReader
 					DrEsDUp = CmdEsDup.ExecuteReader
 					DrEsDUp.Close()
 
-					ConnEs.Close()
 					ConnEsDup.Close()
+					MsgBox("Import Done")
 
 
-					MsgBox("Wis Rampung")
 
-					DGV_MPCheckingOrder.Update()
 				End If
 			Catch ex As Exception
 
@@ -161,17 +120,21 @@ Public Class FormCheckingOrder
 
 				If CariFile.ShowDialog() = Windows.Forms.DialogResult.OK Then
 					Dim NamaFile = CariFile.FileName
-					Dim ConnEx As New OleDbConnection(" Provider = Microsoft.ACE.OLEDB.12.0; Data Source = '" & NamaFile & "';Extended Properties = ""Excel 12.0 xml;IMEX=1;HDR = Yes"" ")
+					Dim ConnEx As New OleDbConnection(" Provider = Microsoft.ACE.OLEDB.12.0; Data Source = '" & NamaFile & "';Extended Properties = ""Excel 12.0 xml;HDR = Yes"" ")
 					ConnEx.Open()
 
 					Dim DaEx As New OleDbDataAdapter("SELECT * FROM [orders$A1:AS5000]", ConnEx)
 					DaEx.TableMappings.Add("'" & NamaFile & "'", "MP_CheckingOrder")
 					Dim DsEx As New DataSet
+					Dim DtEx As New DataTable
 					DaEx.Fill(DsEx)
 					ConnEx.Close()
 
 					Dim ConnEs As New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS ; Initial Catalog = INV ; Integrated Security = TRUE")
 					ConnEs.Open()
+
+
+
 					Dim DrwEs1 As DataRow
 					Dim DrEs1 As SqlDataReader
 
@@ -187,56 +150,56 @@ Public Class FormCheckingOrder
 						HargaOngkir = HargaOngkir.Replace(".", String.Empty)
 						Dim FinalOngkir As Integer = Integer.Parse(HargaOngkir)
 
+						Dim Quan As Integer = Integer.Parse(DrwEs1(17))
+
+
 						Dim CmdEs As New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Proses_Status,Tanggal_Proses) 
-													VALUES ('" & ComboBoxPilihMP.SelectedItem & "','" & DrwEs1(0).ToString & "','" & DrwEs1(11).ToString & "','" & DrwEs1(0).ToString & "','" & DrwEs1(4).ToString & "','" & DrwEs1(11).ToString & "',
-													'" & DrwEs1(17) & "','" & HargaFinal & "','" & FinalOngkir & "','" & Loc & "','','" & Tanggal & "')", ConnEs)
+												VALUES ('" & ComboBoxPilihMP.SelectedItem & "','" & DrwEs1(0).ToString & "','" & DrwEs1(11).ToString & "','" & DrwEs1(0).ToString & "','" & DrwEs1(4).ToString & "','" & DrwEs1(11).ToString & "',
+												'" & Quan & "','" & HargaFinal & "','" & FinalOngkir & "','" & Loc & "','','" & Tanggal & "')", ConnEs)
 						DrEs1 = CmdEs.ExecuteReader
 						DrEs1.Close()
 
 					Next
+
 
 					Dim ConnEsDup As SqlConnection
 					ConnEsDup = New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS; Initial Catalog = INV ; Integrated Security = True")
 					ConnEsDup.Open()
 					Dim CmdEsDup As SqlCommand
 					CmdEsDup = New SqlCommand("
-					'WITH DUP AS( 
-					'SELECT 
-					'MP,
-					'Order_ID,
-					'Tokped_ProductId,
-					'Invoice,
-					'Proses_Status,
-					'ROW_NUMBER() OVER(
-					'	PARTITION BY
-					'	MP,
-					'	Order_ID,
-					'	Tokped_ProductId,
-					'	Invoice,
-					'	Proses_Status
-					'ORDER BY
-					'	MP,
-					'	Order_ID,
-					'	Tokped_ProductId,
-					'	Invoice,
-					'	Proses_Status
-					')ROW_NUM 
-					'FROM MP_CheckingOrder)
-					'DELETE FROM DUP
-					'WHERE ROW_NUM > 1 AND Proses_Status IS NULL", ConnEsDup)
+					WITH DUP AS( 
+					SELECT 
+					MP,
+					Order_ID,
+					Tokped_ProductId,
+					Invoice,
+					
+					ROW_NUMBER() OVER(
+						PARTITION BY
+						MP,
+						Order_ID,
+						Tokped_ProductId,
+						Invoice
+					ORDER BY
+						MP,
+						Order_ID,
+						Tokped_ProductId,
+						Invoice
+					)ROW_NUM 
+					FROM MP_CheckingOrder)
+					DELETE FROM DUP
+					WHERE ROW_NUM > 1 ", ConnEsDup)
 
-					'Dim DrEsDUp As SqlDataReader
-					'DrEsDUp = CmdEsDup.ExecuteReader
-					'DrEsDUp.Close()
-
-					MsgBox("Import Shopee Success!!")
-					ConnEs.Close()
+					Dim DrEsDUp As SqlDataReader
+					DrEsDUp = CmdEsDup.ExecuteReader
+					DrEsDUp.Close()
 					ConnEsDup.Close()
-
-
+					ConnEs.Close()
+					MsgBox("Import Done")
 
 
 				End If
+
 			Catch ex As Exception
 
 			End Try
@@ -245,5 +208,9 @@ Public Class FormCheckingOrder
 
 		End If
 
+	End Sub
+
+	Private Shared Sub NewMethod(ConnEs As SqlConnection)
+		ConnEs.Close()
 	End Sub
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormCheckingOrder
 	Inherits System.Windows.Forms.Form
 
 	'Form overrides dispose to clean up the component list.
-	<System.Diagnostics.DebuggerNonUserCode()> _
+	<System.Diagnostics.DebuggerNonUserCode()>
 	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 		Try
 			If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,8 @@ Partial Class FormCheckingOrder
 	'NOTE: The following procedure is required by the Windows Form Designer
 	'It can be modified using the Windows Form Designer.  
 	'Do not modify it using the code editor.
-	<System.Diagnostics.DebuggerStepThrough()> _
+	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Me.components = New System.ComponentModel.Container()
 		Me.ComboBoxPilihMP = New System.Windows.Forms.ComboBox()
 		Me.GroupBoxCariOrderId = New System.Windows.Forms.GroupBox()
 		Me.ButtonCariOrderId = New System.Windows.Forms.Button()
@@ -36,22 +35,10 @@ Partial Class FormCheckingOrder
 		Me.DGV_MPCheckingOrder = New System.Windows.Forms.DataGridView()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.LabelStatusKoneksi = New System.Windows.Forms.Label()
-		Me.INVDataSet = New MarketPlace_CheckingOrder.INVDataSet()
-		Me.MPCheckingOrderBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-		Me.MP_CheckingOrderTableAdapter = New MarketPlace_CheckingOrder.INVDataSetTableAdapters.MP_CheckingOrderTableAdapter()
-		Me.MPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.OrderIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.InvoiceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.IsbnDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.HargaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.OngkirDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.ProsesStatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.GroupBoxCariOrderId.SuspendLayout()
 		Me.GroupBoxImport.SuspendLayout()
 		Me.GroupBoxCheckingOrder.SuspendLayout()
 		CType(Me.DGV_MPCheckingOrder, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.INVDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.MPCheckingOrderBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'ComboBoxPilihMP
@@ -158,10 +145,7 @@ Partial Class FormCheckingOrder
 		'
 		Me.DGV_MPCheckingOrder.AllowUserToAddRows = False
 		Me.DGV_MPCheckingOrder.AllowUserToDeleteRows = False
-		Me.DGV_MPCheckingOrder.AutoGenerateColumns = False
 		Me.DGV_MPCheckingOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DGV_MPCheckingOrder.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MPDataGridViewTextBoxColumn, Me.OrderIdDataGridViewTextBoxColumn, Me.InvoiceDataGridViewTextBoxColumn, Me.IsbnDataGridViewTextBoxColumn, Me.HargaDataGridViewTextBoxColumn, Me.OngkirDataGridViewTextBoxColumn, Me.ProsesStatusDataGridViewTextBoxColumn})
-		Me.DGV_MPCheckingOrder.DataSource = Me.MPCheckingOrderBindingSource
 		Me.DGV_MPCheckingOrder.Location = New System.Drawing.Point(6, 19)
 		Me.DGV_MPCheckingOrder.Name = "DGV_MPCheckingOrder"
 		Me.DGV_MPCheckingOrder.ReadOnly = True
@@ -188,69 +172,6 @@ Partial Class FormCheckingOrder
 		Me.LabelStatusKoneksi.Size = New System.Drawing.Size(0, 9)
 		Me.LabelStatusKoneksi.TabIndex = 5
 		'
-		'INVDataSet
-		'
-		Me.INVDataSet.DataSetName = "INVDataSet"
-		Me.INVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-		'
-		'MPCheckingOrderBindingSource
-		'
-		Me.MPCheckingOrderBindingSource.DataMember = "MP_CheckingOrder"
-		Me.MPCheckingOrderBindingSource.DataSource = Me.INVDataSet
-		'
-		'MP_CheckingOrderTableAdapter
-		'
-		Me.MP_CheckingOrderTableAdapter.ClearBeforeFill = True
-		'
-		'MPDataGridViewTextBoxColumn
-		'
-		Me.MPDataGridViewTextBoxColumn.DataPropertyName = "MP"
-		Me.MPDataGridViewTextBoxColumn.HeaderText = "MP"
-		Me.MPDataGridViewTextBoxColumn.Name = "MPDataGridViewTextBoxColumn"
-		Me.MPDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'OrderIdDataGridViewTextBoxColumn
-		'
-		Me.OrderIdDataGridViewTextBoxColumn.DataPropertyName = "Order_Id"
-		Me.OrderIdDataGridViewTextBoxColumn.HeaderText = "Order_Id"
-		Me.OrderIdDataGridViewTextBoxColumn.Name = "OrderIdDataGridViewTextBoxColumn"
-		Me.OrderIdDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'InvoiceDataGridViewTextBoxColumn
-		'
-		Me.InvoiceDataGridViewTextBoxColumn.DataPropertyName = "Invoice"
-		Me.InvoiceDataGridViewTextBoxColumn.HeaderText = "Invoice"
-		Me.InvoiceDataGridViewTextBoxColumn.Name = "InvoiceDataGridViewTextBoxColumn"
-		Me.InvoiceDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'IsbnDataGridViewTextBoxColumn
-		'
-		Me.IsbnDataGridViewTextBoxColumn.DataPropertyName = "Isbn"
-		Me.IsbnDataGridViewTextBoxColumn.HeaderText = "Isbn"
-		Me.IsbnDataGridViewTextBoxColumn.Name = "IsbnDataGridViewTextBoxColumn"
-		Me.IsbnDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'HargaDataGridViewTextBoxColumn
-		'
-		Me.HargaDataGridViewTextBoxColumn.DataPropertyName = "Harga"
-		Me.HargaDataGridViewTextBoxColumn.HeaderText = "Harga"
-		Me.HargaDataGridViewTextBoxColumn.Name = "HargaDataGridViewTextBoxColumn"
-		Me.HargaDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'OngkirDataGridViewTextBoxColumn
-		'
-		Me.OngkirDataGridViewTextBoxColumn.DataPropertyName = "Ongkir"
-		Me.OngkirDataGridViewTextBoxColumn.HeaderText = "Ongkir"
-		Me.OngkirDataGridViewTextBoxColumn.Name = "OngkirDataGridViewTextBoxColumn"
-		Me.OngkirDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'ProsesStatusDataGridViewTextBoxColumn
-		'
-		Me.ProsesStatusDataGridViewTextBoxColumn.DataPropertyName = "Proses_Status"
-		Me.ProsesStatusDataGridViewTextBoxColumn.HeaderText = "Proses_Status"
-		Me.ProsesStatusDataGridViewTextBoxColumn.Name = "ProsesStatusDataGridViewTextBoxColumn"
-		Me.ProsesStatusDataGridViewTextBoxColumn.ReadOnly = True
-		'
 		'FormCheckingOrder
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -272,8 +193,6 @@ Partial Class FormCheckingOrder
 		Me.GroupBoxImport.ResumeLayout(False)
 		Me.GroupBoxCheckingOrder.ResumeLayout(False)
 		CType(Me.DGV_MPCheckingOrder, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.INVDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.MPCheckingOrderBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -292,14 +211,4 @@ Partial Class FormCheckingOrder
 	Friend WithEvents DGV_MPCheckingOrder As DataGridView
 	Friend WithEvents Label1 As Label
 	Public WithEvents LabelStatusKoneksi As Label
-	Friend WithEvents INVDataSet As INVDataSet
-	Friend WithEvents MPCheckingOrderBindingSource As BindingSource
-	Friend WithEvents MP_CheckingOrderTableAdapter As INVDataSetTableAdapters.MP_CheckingOrderTableAdapter
-	Friend WithEvents MPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents OrderIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents InvoiceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents IsbnDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents HargaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents OngkirDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents ProsesStatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

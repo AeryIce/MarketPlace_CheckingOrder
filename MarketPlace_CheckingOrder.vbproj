@@ -81,6 +81,12 @@
       <DependentUpon>FormCheckingOrder.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormValidasi.Designer.vb">
+      <DependentUpon>FormValidasi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormValidasi.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="INVDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +112,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormCheckingOrder.resx">
       <DependentUpon>FormCheckingOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidasi.resx">
+      <DependentUpon>FormValidasi.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -152,6 +161,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add_file_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_window_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\telegram_app_32px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

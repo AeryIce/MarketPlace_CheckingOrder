@@ -1,6 +1,10 @@
 ﻿Imports System.Data.SqlClient
 Module ModuleKoneksi
 	Public ConnectDb As SqlConnection
+	Public Dr As SqlDataReader
+	Public Da As SqlDataAdapter
+	Public Ds As DataSet
+	Public Cmd As SqlCommand
 
 	Sub Konek()
 		Try

@@ -48,10 +48,12 @@ Public Class FormCheckingOrder
 
 					For Each DrwEs In DsEx.Tables(0).Rows
 
-						CmdEs = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Proses_Status,Tanggal_Proses) VALUES ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(1).ToString & "','" & DrwEs(5).ToString & "','" & DrwEs(2).ToString & "',
-												'" & DrwEs(23).ToString & "','" & DrwEs(8).ToString & "'," & DrwEs(7) & "," & DrwEs(10) & "," & DrwEs(19) & ",'" & Loc & "','','" & Tanggal & "' ) ", ConnEs)
+						CmdEs = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Tanggal_Proses) VALUES ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(1).ToString & "','" & DrwEs(5).ToString & "','" & DrwEs(2).ToString & "',
+												'" & DrwEs(23).ToString & "','" & DrwEs(8).ToString & "'," & DrwEs(7) & "," & DrwEs(10) & "," & DrwEs(19) & ",'" & Loc & "','" & Tanggal & "' ) ", ConnEs)
 						DrEs = CmdEs.ExecuteReader
 						DrEs.Close()
+
+						'WHERE NOT EXIST ( SELECT '" & DrwEs(1).ToString & "' FROM MP_CheckingOrder WHERE Proses_Status = 1  ) 
 
 					Next
 
@@ -63,38 +65,30 @@ Public Class FormCheckingOrder
 					ConnEsDup.Open()
 					Dim CmdEsDup As SqlCommand
 					CmdEsDup = New SqlCommand("
-					WITH DUP AS( 
-					SELECT 
-					MP,
-					Order_ID,
-					Tokped_ProductId,
-					Invoice,
-					Isbn,
 					
-					ROW_NUMBER() OVER(
-						PARTITION BY
-						MP,
-						Order_ID,
-						Tokped_ProductId,
-						Invoice,
-						Isbn
-						
-					ORDER BY
-						MP,
-						Order_ID,
-						Tokped_ProductId,
-						Invoice
-						Isbn
-					)ROW_NUM 
-					FROM MP_CheckingOrder)
-					DELETE FROM DUP
-					WHERE ROW_NUM > 1 ", ConnEsDup)
+					WITH DUP AS( 
+						SELECT 
+						*,
+						ROW_NUMBER() OVER(
+							PARTITION BY
+							MP,
+							Tokped_ProductId,
+							Order_ID,
+							Invoice
+						ORDER BY
+							Proses_status desc
+						)as ROW_NUM 
+						FROM MP_CheckingOrder)
+							DELETE FROM DUP
+							WHERE ROW_NUM > 1", ConnEsDup)
 
 					Dim DrEsDUp As SqlDataReader
 					DrEsDUp = CmdEsDup.ExecuteReader
 					DrEsDUp.Close()
 
 					ConnEsDup.Close()
+
+
 					MsgBox("Import Done")
 
 
@@ -168,27 +162,20 @@ Public Class FormCheckingOrder
 					Dim CmdEsDup As SqlCommand
 					CmdEsDup = New SqlCommand("
 					WITH DUP AS( 
-					SELECT 
-					MP,
-					Order_ID,
-					Tokped_ProductId,
-					Invoice,
-					
-					ROW_NUMBER() OVER(
-						PARTITION BY
-						MP,
-						Order_ID,
-						Tokped_ProductId,
-						Invoice
-					ORDER BY
-						MP,
-						Order_ID,
-						Tokped_ProductId,
-						Invoice
-					)ROW_NUM 
-					FROM MP_CheckingOrder)
-					DELETE FROM DUP
-					WHERE ROW_NUM > 1 ", ConnEsDup)
+						SELECT 
+						*,
+						ROW_NUMBER() OVER(
+							PARTITION BY
+							MP,
+							Tokped_ProductId,
+							Order_ID,
+							Invoice
+						ORDER BY
+							Proses_status desc
+						)as ROW_NUM 
+						FROM MP_CheckingOrder)
+							DELETE FROM DUP
+							WHERE ROW_NUM > 1", ConnEsDup)
 
 					Dim DrEsDUp As SqlDataReader
 					DrEsDUp = CmdEsDup.ExecuteReader
@@ -213,4 +200,25 @@ Public Class FormCheckingOrder
 	Private Shared Sub NewMethod(ConnEs As SqlConnection)
 		ConnEs.Close()
 	End Sub
+
+	Private Sub ButtonCariISBN_Click(sender As Object, e As EventArgs) Handles ButtonCariISBN.Click
+		Me.Visible = False
+		FormValidasi.Show()
+
+		Call Konek()
+		Cmd = New SqlCommand("SELECT * FROM Mp_CheckingOrder WHERE Isbn = '" & TextBoxScanIsbn.Text & "' ", ConnectDb)
+		Dr = Cmd.ExecuteReader
+		Dr.Read()
+		If Dr.HasRows Then
+			Call Konek()
+			Da = New SqlDataAdapter("SELECT MP,Order_id,Invoice,Isbn,Qty,Proses_status FROM Mp_CheckingOrder WHERE Isbn ='" & TextBoxScanIsbn.Text & "' AND Proses_Status <> 1", ConnectDb)
+			Ds = New DataSet
+			Da.Fill(Ds)
+			FormValidasi.DGVInvoice.DataSource = Ds.Tables(0)
+
+		End If
+
+	End Sub
+
+
 End Class

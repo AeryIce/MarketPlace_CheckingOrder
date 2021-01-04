@@ -24,17 +24,15 @@ Partial Class FormCheckingOrder
 	Private Sub InitializeComponent()
 		Me.ComboBoxPilihMP = New System.Windows.Forms.ComboBox()
 		Me.GroupBoxCariOrderId = New System.Windows.Forms.GroupBox()
+		Me.ButtonCariISBN = New System.Windows.Forms.Button()
 		Me.TextBoxScanIsbn = New System.Windows.Forms.TextBox()
 		Me.GroupBoxImport = New System.Windows.Forms.GroupBox()
+		Me.ButtonImport = New System.Windows.Forms.Button()
 		Me.GroupBoxCheckingOrder = New System.Windows.Forms.GroupBox()
 		Me.ButtonExit = New System.Windows.Forms.Button()
-		Me.ButtonCancel = New System.Windows.Forms.Button()
-		Me.ButtonPass = New System.Windows.Forms.Button()
 		Me.DGV_MPCheckingOrder = New System.Windows.Forms.DataGridView()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.LabelStatusKoneksi = New System.Windows.Forms.Label()
-		Me.ButtonImport = New System.Windows.Forms.Button()
-		Me.ButtonCariISBN = New System.Windows.Forms.Button()
 		Me.GroupBoxCariOrderId.SuspendLayout()
 		Me.GroupBoxImport.SuspendLayout()
 		Me.GroupBoxCheckingOrder.SuspendLayout()
@@ -61,6 +59,15 @@ Partial Class FormCheckingOrder
 		Me.GroupBoxCariOrderId.TabStop = False
 		Me.GroupBoxCariOrderId.Text = "Scan Barcode ISBN"
 		'
+		'ButtonCariISBN
+		'
+		Me.ButtonCariISBN.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.search_16px
+		Me.ButtonCariISBN.Location = New System.Drawing.Point(218, 19)
+		Me.ButtonCariISBN.Name = "ButtonCariISBN"
+		Me.ButtonCariISBN.Size = New System.Drawing.Size(28, 31)
+		Me.ButtonCariISBN.TabIndex = 1
+		Me.ButtonCariISBN.UseVisualStyleBackColor = True
+		'
 		'TextBoxScanIsbn
 		'
 		Me.TextBoxScanIsbn.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -80,45 +87,36 @@ Partial Class FormCheckingOrder
 		Me.GroupBoxImport.TabStop = False
 		Me.GroupBoxImport.Text = "Import File"
 		'
+		'ButtonImport
+		'
+		Me.ButtonImport.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.add_file_32px
+		Me.ButtonImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.ButtonImport.Location = New System.Drawing.Point(175, 15)
+		Me.ButtonImport.Name = "ButtonImport"
+		Me.ButtonImport.Size = New System.Drawing.Size(103, 43)
+		Me.ButtonImport.TabIndex = 0
+		Me.ButtonImport.Text = "Import Data"
+		Me.ButtonImport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.ButtonImport.UseVisualStyleBackColor = True
+		'
 		'GroupBoxCheckingOrder
 		'
-		Me.GroupBoxCheckingOrder.Controls.Add(Me.ButtonExit)
-		Me.GroupBoxCheckingOrder.Controls.Add(Me.ButtonCancel)
-		Me.GroupBoxCheckingOrder.Controls.Add(Me.ButtonPass)
 		Me.GroupBoxCheckingOrder.Controls.Add(Me.DGV_MPCheckingOrder)
 		Me.GroupBoxCheckingOrder.Location = New System.Drawing.Point(13, 131)
 		Me.GroupBoxCheckingOrder.Name = "GroupBoxCheckingOrder"
-		Me.GroupBoxCheckingOrder.Size = New System.Drawing.Size(555, 257)
+		Me.GroupBoxCheckingOrder.Size = New System.Drawing.Size(555, 185)
 		Me.GroupBoxCheckingOrder.TabIndex = 3
 		Me.GroupBoxCheckingOrder.TabStop = False
 		Me.GroupBoxCheckingOrder.Text = "Checking Order"
 		'
 		'ButtonExit
 		'
-		Me.ButtonExit.Location = New System.Drawing.Point(440, 201)
+		Me.ButtonExit.Location = New System.Drawing.Point(453, 322)
 		Me.ButtonExit.Name = "ButtonExit"
 		Me.ButtonExit.Size = New System.Drawing.Size(103, 50)
 		Me.ButtonExit.TabIndex = 3
 		Me.ButtonExit.Text = "EXIT"
 		Me.ButtonExit.UseVisualStyleBackColor = True
-		'
-		'ButtonCancel
-		'
-		Me.ButtonCancel.Location = New System.Drawing.Point(440, 142)
-		Me.ButtonCancel.Name = "ButtonCancel"
-		Me.ButtonCancel.Size = New System.Drawing.Size(103, 50)
-		Me.ButtonCancel.TabIndex = 2
-		Me.ButtonCancel.Text = "CANCEL"
-		Me.ButtonCancel.UseVisualStyleBackColor = True
-		'
-		'ButtonPass
-		'
-		Me.ButtonPass.Location = New System.Drawing.Point(440, 19)
-		Me.ButtonPass.Name = "ButtonPass"
-		Me.ButtonPass.Size = New System.Drawing.Size(103, 117)
-		Me.ButtonPass.TabIndex = 1
-		Me.ButtonPass.Text = "PASS"
-		Me.ButtonPass.UseVisualStyleBackColor = True
 		'
 		'DGV_MPCheckingOrder
 		'
@@ -129,7 +127,7 @@ Partial Class FormCheckingOrder
 		Me.DGV_MPCheckingOrder.Name = "DGV_MPCheckingOrder"
 		Me.DGV_MPCheckingOrder.ReadOnly = True
 		Me.DGV_MPCheckingOrder.RowHeadersVisible = False
-		Me.DGV_MPCheckingOrder.Size = New System.Drawing.Size(428, 232)
+		Me.DGV_MPCheckingOrder.Size = New System.Drawing.Size(537, 153)
 		Me.DGV_MPCheckingOrder.TabIndex = 0
 		'
 		'Label1
@@ -151,33 +149,13 @@ Partial Class FormCheckingOrder
 		Me.LabelStatusKoneksi.Size = New System.Drawing.Size(0, 9)
 		Me.LabelStatusKoneksi.TabIndex = 5
 		'
-		'ButtonImport
-		'
-		Me.ButtonImport.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.add_file_32px
-		Me.ButtonImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.ButtonImport.Location = New System.Drawing.Point(175, 15)
-		Me.ButtonImport.Name = "ButtonImport"
-		Me.ButtonImport.Size = New System.Drawing.Size(103, 43)
-		Me.ButtonImport.TabIndex = 0
-		Me.ButtonImport.Text = "Import Data"
-		Me.ButtonImport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		Me.ButtonImport.UseVisualStyleBackColor = True
-		'
-		'ButtonCariISBN
-		'
-		Me.ButtonCariISBN.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.search_16px
-		Me.ButtonCariISBN.Location = New System.Drawing.Point(218, 19)
-		Me.ButtonCariISBN.Name = "ButtonCariISBN"
-		Me.ButtonCariISBN.Size = New System.Drawing.Size(28, 31)
-		Me.ButtonCariISBN.TabIndex = 1
-		Me.ButtonCariISBN.UseVisualStyleBackColor = True
-		'
 		'FormCheckingOrder
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.SteelBlue
 		Me.ClientSize = New System.Drawing.Size(596, 413)
+		Me.Controls.Add(Me.ButtonExit)
 		Me.Controls.Add(Me.LabelStatusKoneksi)
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.GroupBoxCheckingOrder)
@@ -206,9 +184,8 @@ Partial Class FormCheckingOrder
 	Friend WithEvents ButtonImport As Button
 	Friend WithEvents GroupBoxCheckingOrder As GroupBox
 	Friend WithEvents ButtonExit As Button
-	Friend WithEvents ButtonCancel As Button
-	Friend WithEvents ButtonPass As Button
 	Friend WithEvents DGV_MPCheckingOrder As DataGridView
 	Friend WithEvents Label1 As Label
 	Public WithEvents LabelStatusKoneksi As Label
+
 End Class

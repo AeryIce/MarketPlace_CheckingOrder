@@ -24,9 +24,10 @@ Partial Class FormValidasi
 	Private Sub InitializeComponent()
 		Me.LabelFormValidasi = New System.Windows.Forms.Label()
 		Me.GroupBoxDataInvoice = New System.Windows.Forms.GroupBox()
+		Me.DGVInvoice = New System.Windows.Forms.DataGridView()
 		Me.ButtonProses = New System.Windows.Forms.Button()
 		Me.ButtonCancel = New System.Windows.Forms.Button()
-		Me.DGVInvoice = New System.Windows.Forms.DataGridView()
+		Me.TextBoxvalidasiisbn = New System.Windows.Forms.TextBox()
 		Me.GroupBoxDataInvoice.SuspendLayout()
 		CType(Me.DGVInvoice, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -36,7 +37,7 @@ Partial Class FormValidasi
 		Me.LabelFormValidasi.AutoSize = True
 		Me.LabelFormValidasi.Font = New System.Drawing.Font("Lucida Console", 24.0!, CType(((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic) _
 				Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelFormValidasi.Location = New System.Drawing.Point(79, 27)
+		Me.LabelFormValidasi.Location = New System.Drawing.Point(79, 9)
 		Me.LabelFormValidasi.Name = "LabelFormValidasi"
 		Me.LabelFormValidasi.Size = New System.Drawing.Size(435, 32)
 		Me.LabelFormValidasi.TabIndex = 0
@@ -51,6 +52,14 @@ Partial Class FormValidasi
 		Me.GroupBoxDataInvoice.TabIndex = 1
 		Me.GroupBoxDataInvoice.TabStop = False
 		Me.GroupBoxDataInvoice.Text = "Data Invoice"
+		'
+		'DGVInvoice
+		'
+		Me.DGVInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		Me.DGVInvoice.Location = New System.Drawing.Point(6, 19)
+		Me.DGVInvoice.Name = "DGVInvoice"
+		Me.DGVInvoice.Size = New System.Drawing.Size(644, 294)
+		Me.DGVInvoice.TabIndex = 0
 		'
 		'ButtonProses
 		'
@@ -78,20 +87,20 @@ Partial Class FormValidasi
 		Me.ButtonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		Me.ButtonCancel.UseVisualStyleBackColor = True
 		'
-		'DGVInvoice
+		'TextBoxvalidasiisbn
 		'
-		Me.DGVInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DGVInvoice.Location = New System.Drawing.Point(6, 19)
-		Me.DGVInvoice.Name = "DGVInvoice"
-		Me.DGVInvoice.Size = New System.Drawing.Size(644, 294)
-		Me.DGVInvoice.TabIndex = 0
+		Me.TextBoxvalidasiisbn.Location = New System.Drawing.Point(12, 62)
+		Me.TextBoxvalidasiisbn.Name = "TextBoxvalidasiisbn"
+		Me.TextBoxvalidasiisbn.Size = New System.Drawing.Size(205, 20)
+		Me.TextBoxvalidasiisbn.TabIndex = 4
 		'
 		'FormValidasi
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.BackColor = System.Drawing.Color.SteelBlue
+		Me.BackColor = System.Drawing.Color.Aqua
 		Me.ClientSize = New System.Drawing.Size(800, 450)
+		Me.Controls.Add(Me.TextBoxvalidasiisbn)
 		Me.Controls.Add(Me.ButtonProses)
 		Me.Controls.Add(Me.ButtonCancel)
 		Me.Controls.Add(Me.LabelFormValidasi)
@@ -113,4 +122,5 @@ Partial Class FormValidasi
 	Friend WithEvents ButtonCancel As Button
 	Friend WithEvents ButtonProses As Button
 	Friend WithEvents DGVInvoice As DataGridView
+	Friend WithEvents TextBoxvalidasiisbn As TextBox
 End Class

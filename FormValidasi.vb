@@ -34,7 +34,7 @@ Public Class FormValidasi
                 Exit Sub
             Else
                 For Each row As DataGridViewRow In CheckedRows
-                    Cmd = New SqlCommand("UPDATE MP_CheckingOrder set Proses_status=1 WHERE order_id in('" & row.Cells(1).Value & "') and isbn in('" & row.Cells(3).Value & "')", ConnectDb)
+                    Cmd = New SqlCommand("UPDATE MP_CheckingOrder_Temp set Proses_status=1 WHERE order_id in('" & row.Cells(1).Value & "') and isbn in('" & row.Cells(3).Value & "')", ConnectDb)
                     Dr = Cmd.ExecuteReader
                     Dr.Close()
                 Next
@@ -56,12 +56,12 @@ Public Class FormValidasi
         Dim idxRow As DataGridViewCheckBoxCell = DGVInvoice.Rows(0).Cells(5)
         Dim intRow As Integer = idxRow.RowIndex
 
-        Cmd = New SqlCommand("SELECT isbn FROM MP_CheckingOrder WHERE isbn ='" & TextBoxvalidasiisbn.Text & "'", ConnectDb)
+        Cmd = New SqlCommand("SELECT isbn FROM MP_CheckingOrder_Temp WHERE isbn ='" & TextBoxvalidasiisbn.Text & "'", ConnectDb)
         Dr = Cmd.ExecuteReader
         Dr.Read()
         If Dr.HasRows Then
             Call Konek()
-            Da = New SqlDataAdapter("SELECT isbn FROM MP_CheckingOrder WHERE isbn ='" & TextBoxvalidasiisbn.Text & "' AND Proses_Status is null", ConnectDb)
+            Da = New SqlDataAdapter("SELECT isbn FROM MP_CheckingOrder_Temp WHERE isbn ='" & TextBoxvalidasiisbn.Text & "' AND Proses_Status is null", ConnectDb)
             Ds = New DataSet
             Da.Fill(Ds)
             data.Value = True

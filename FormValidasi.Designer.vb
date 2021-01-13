@@ -25,9 +25,10 @@ Partial Class FormValidasi
 		Me.LabelFormValidasi = New System.Windows.Forms.Label()
 		Me.GroupBoxDataInvoice = New System.Windows.Forms.GroupBox()
 		Me.DGVInvoice = New System.Windows.Forms.DataGridView()
-		Me.ButtonProses = New System.Windows.Forms.Button()
-		Me.ButtonCancel = New System.Windows.Forms.Button()
+		Me.BtProses = New System.Windows.Forms.Button()
+		Me.BtCancel = New System.Windows.Forms.Button()
 		Me.TextBoxvalidasiisbn = New System.Windows.Forms.TextBox()
+		Me.BtCari = New System.Windows.Forms.Button()
 		Me.GroupBoxDataInvoice.SuspendLayout()
 		CType(Me.DGVInvoice, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -61,31 +62,31 @@ Partial Class FormValidasi
 		Me.DGVInvoice.Size = New System.Drawing.Size(644, 294)
 		Me.DGVInvoice.TabIndex = 0
 		'
-		'ButtonProses
+		'BtProses
 		'
-		Me.ButtonProses.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.ButtonProses.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.telegram_app_32px
-		Me.ButtonProses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.ButtonProses.Location = New System.Drawing.Point(690, 176)
-		Me.ButtonProses.Name = "ButtonProses"
-		Me.ButtonProses.Size = New System.Drawing.Size(84, 40)
-		Me.ButtonProses.TabIndex = 3
-		Me.ButtonProses.Text = "Process"
-		Me.ButtonProses.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		Me.ButtonProses.UseVisualStyleBackColor = True
+		Me.BtProses.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.BtProses.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.telegram_app_32px
+		Me.BtProses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.BtProses.Location = New System.Drawing.Point(690, 176)
+		Me.BtProses.Name = "BtProses"
+		Me.BtProses.Size = New System.Drawing.Size(84, 40)
+		Me.BtProses.TabIndex = 3
+		Me.BtProses.Text = "Process"
+		Me.BtProses.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.BtProses.UseVisualStyleBackColor = True
 		'
-		'ButtonCancel
+		'BtCancel
 		'
-		Me.ButtonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.ButtonCancel.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.close_window_32px
-		Me.ButtonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.ButtonCancel.Location = New System.Drawing.Point(690, 264)
-		Me.ButtonCancel.Name = "ButtonCancel"
-		Me.ButtonCancel.Size = New System.Drawing.Size(84, 40)
-		Me.ButtonCancel.TabIndex = 2
-		Me.ButtonCancel.Text = "Cancel"
-		Me.ButtonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		Me.ButtonCancel.UseVisualStyleBackColor = True
+		Me.BtCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.BtCancel.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.close_window_32px
+		Me.BtCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.BtCancel.Location = New System.Drawing.Point(690, 264)
+		Me.BtCancel.Name = "BtCancel"
+		Me.BtCancel.Size = New System.Drawing.Size(84, 40)
+		Me.BtCancel.TabIndex = 2
+		Me.BtCancel.Text = "Cancel"
+		Me.BtCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.BtCancel.UseVisualStyleBackColor = True
 		'
 		'TextBoxvalidasiisbn
 		'
@@ -94,15 +95,25 @@ Partial Class FormValidasi
 		Me.TextBoxvalidasiisbn.Size = New System.Drawing.Size(205, 20)
 		Me.TextBoxvalidasiisbn.TabIndex = 4
 		'
+		'BtCari
+		'
+		Me.BtCari.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.search_16px
+		Me.BtCari.Location = New System.Drawing.Point(223, 60)
+		Me.BtCari.Name = "BtCari"
+		Me.BtCari.Size = New System.Drawing.Size(31, 23)
+		Me.BtCari.TabIndex = 5
+		Me.BtCari.UseVisualStyleBackColor = True
+		'
 		'FormValidasi
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.Aqua
 		Me.ClientSize = New System.Drawing.Size(800, 450)
+		Me.Controls.Add(Me.BtCari)
 		Me.Controls.Add(Me.TextBoxvalidasiisbn)
-		Me.Controls.Add(Me.ButtonProses)
-		Me.Controls.Add(Me.ButtonCancel)
+		Me.Controls.Add(Me.BtProses)
+		Me.Controls.Add(Me.BtCancel)
 		Me.Controls.Add(Me.LabelFormValidasi)
 		Me.Controls.Add(Me.GroupBoxDataInvoice)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -119,8 +130,9 @@ Partial Class FormValidasi
 
 	Friend WithEvents LabelFormValidasi As Label
 	Friend WithEvents GroupBoxDataInvoice As GroupBox
-	Friend WithEvents ButtonCancel As Button
-	Friend WithEvents ButtonProses As Button
+	Friend WithEvents BtCancel As Button
+	Friend WithEvents BtProses As Button
 	Friend WithEvents DGVInvoice As DataGridView
 	Friend WithEvents TextBoxvalidasiisbn As TextBox
+	Friend WithEvents BtCari As Button
 End Class

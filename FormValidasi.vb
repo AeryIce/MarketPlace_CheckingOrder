@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data.OleDb
 Public Class FormValidasi
-    Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles ButtonCancel.Click
+    Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles BtCancel.Click
         Me.Close()
         FormCheckingOrder.Show()
     End Sub
@@ -13,12 +13,20 @@ Public Class FormValidasi
         chk.Name = "chk"
         DGVInvoice.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         DGVInvoice.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        BtProses.Enabled = False
     End Sub
     Private Sub DGVInvoice_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVInvoice.CellContentClick
         Dim senderGrid As DataGridView = sender
         Dim data = senderGrid.Rows(e.RowIndex).DataBoundItem
+
+        If (DGVInvoice.Columns(e.ColumnIndex).Name = "chk") = True Then
+            BtProses.Enabled = True
+        Else
+            BtProses.Enabled = False
+            MsgBox("Checkbox For Confirmation")
+        End If
     End Sub
-    Private Sub ButtonProses_Click(sender As Object, e As EventArgs) Handles ButtonProses.Click
+    Private Sub ButtonProses_Click(sender As Object, e As EventArgs) Handles BtProses.Click
         Call Konek()
         Dim idxRow As DataGridViewCheckBoxCell = DGVInvoice.Rows(0).Cells(5)
         Dim intRow As Integer = idxRow.RowIndex
@@ -34,7 +42,7 @@ Public Class FormValidasi
                 Exit Sub
             Else
                 For Each row As DataGridViewRow In CheckedRows
-                    Cmd = New SqlCommand("UPDATE MP_CheckingOrder_Temp set Proses_status=1 WHERE order_id in('" & row.Cells(1).Value & "') and isbn in('" & row.Cells(3).Value & "')", ConnectDb)
+                    Cmd = New SqlCommand("UPDATE MP_CheckingOrder set Proses_status=1 WHERE order_id in('" & row.Cells(1).Value & "') and isbn in('" & row.Cells(3).Value & "')", ConnectDb)
                     Dr = Cmd.ExecuteReader
                     Dr.Close()
                 Next
@@ -49,27 +57,47 @@ Public Class FormValidasi
         End Try
     End Sub
 
-    Private Sub TextBoxvalidasiisbn_TextChanged(sender As Object, e As DataGridViewCellEventArgs) Handles TextBoxvalidasiisbn.TextChanged
-        Call Konek()
-        Dim senderGrid As DataGridView = sender
-        Dim data = senderGrid.Rows(e.RowIndex).DataBoundItem
-        Dim idxRow As DataGridViewCheckBoxCell = DGVInvoice.Rows(0).Cells(5)
-        Dim intRow As Integer = idxRow.RowIndex
-
-        Cmd = New SqlCommand("SELECT isbn FROM MP_CheckingOrder_Temp WHERE isbn ='" & TextBoxvalidasiisbn.Text & "'", ConnectDb)
-        Dr = Cmd.ExecuteReader
-        Dr.Read()
-        If Dr.HasRows Then
-            Call Konek()
-            Da = New SqlDataAdapter("SELECT isbn FROM MP_CheckingOrder_Temp WHERE isbn ='" & TextBoxvalidasiisbn.Text & "' AND Proses_Status is null", ConnectDb)
-            Ds = New DataSet
-            Da.Fill(Ds)
-            data.Value = True
-            MsgBox("ISBN Ada di Invoive !!")
-            TextBoxvalidasiisbn.Clear()
-            TextBoxvalidasiisbn.Focus()
-        Else
-            MsgBox("ISBN Tidak Ada Pada List!!!")
+    Private Sub TextBoxvalidasiisbn_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxvalidasiisbn.KeyPress
+        If e.KeyChar = Convert.ToChar(13) Then
+            BtCari.PerformClick()
         End If
+
     End Sub
+
+    Private Sub BtCari_Click(sender As Object, e As EventArgs) Handles BtCari.Click
+        Try
+            Dim Hasil As Integer = 0
+
+            For CariBaris As Integer = 0 To DGVInvoice.RowCount - 1
+                For CariKolom As Integer = 0 To DGVInvoice.ColumnCount - 1
+                    If DGVInvoice.Rows(CariBaris).Cells(CariKolom).Value.ToString = TextBoxvalidasiisbn.Text Then
+                        MsgBox("Item found")
+                        DGVInvoice.Rows(DGVInvoice.CurrentCell.RowIndex).Cells(5).Value = True
+
+                        Hasil = 1
+                    End If
+                Next
+            Next
+            If Hasil = 0 Then
+                MsgBox("Item not found")
+            End If
+
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+
+        End Try
+    End Sub
+
+
+
+    'Private Sub DGVInvoice_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DGVInvoice.CellValueChanged
+    '    If (DGVInvoice.Columns(e.ColumnIndex).Name = "chk") = True Then
+    '        ButtonProses.Enabled = True
+    '    Else
+    '        MsgBox("Pilih Centang")
+    '    End If
+
+    'End Sub
 End Class

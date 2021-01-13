@@ -38,11 +38,10 @@ Public Class FormCheckingOrder
 					DaEx.Fill(DsEx)
 					ConnEx.Close()
 
-					Dim ConnEs As New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS2012; Initial Catalog = INV ; Integrated Security = True")
+					Dim ConnEs As New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS; Initial Catalog = INV ; Integrated Security = True")
 					ConnEs.Open()
 					Dim DrwEs As DataRow
 					Dim DrEs As SqlDataReader
-					Dim DrEsImp As SqlDataReader
 					Dim CmdEs As SqlCommand
 					Dim CmdEsDell As SqlCommand
 					Dim CmdEsImport As SqlCommand
@@ -62,7 +61,7 @@ Public Class FormCheckingOrder
 
 					'<-- To Delete Duplicate Value -->
 					'Dim ConnEsDup As SqlConnection
-					'ConnEsDup = New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS2012; Initial Catalog = INV ; Integrated Security = True")
+					'ConnEsDup = New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS; Initial Catalog = INV ; Integrated Security = True")
 					'ConnEsDup.Open()
 					'Dim CmdEsDup As SqlCommand
 					'CmdEsDup = New SqlCommand("
@@ -128,7 +127,7 @@ Public Class FormCheckingOrder
 					DaEx.Fill(DsEx)
 					ConnEx.Close()
 
-					Dim ConnEs As New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS2012 ; Initial Catalog = INV ; Integrated Security = TRUE")
+					Dim ConnEs As New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS ; Initial Catalog = INV ; Integrated Security = TRUE")
 					ConnEs.Open()
 					Dim DrwEs1 As DataRow
 					Dim DrEs1 As SqlDataReader
@@ -160,7 +159,7 @@ Public Class FormCheckingOrder
 
 					'<-- Syntax To delete Duplicate Value -->
 					'Dim ConnEsDup As SqlConnection
-					'ConnEsDup = New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS2012; Initial Catalog = INV ; Integrated Security = True")
+					'ConnEsDup = New SqlConnection("Data Source = AERYICE-PC666\SQLEXPRESS; Initial Catalog = INV ; Integrated Security = True")
 					'ConnEsDup.Open()
 					'Dim CmdEsDup As SqlCommand
 					'CmdEsDup = New SqlCommand("

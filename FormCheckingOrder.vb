@@ -18,8 +18,8 @@ Public Class FormCheckingOrder
 		If ComboBoxPilihMP.Text = "TokoPedia" Then
 			Dim Loc As String
 			Loc = "PP343"
-			Dim Tanggal As Date
-			Tanggal = Today
+			'Dim Tanggal As Date
+			'Tanggal = Today
 			Try
 				Dim CariFile As New OpenFileDialog
 				With CariFile
@@ -51,8 +51,8 @@ Public Class FormCheckingOrder
 
 					For Each DrwEs In DsEx.Tables(0).Rows
 
-						CmdEs = New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Tanggal_Proses) VALUES ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(1).ToString & "','" & DrwEs(5).ToString & "','" & DrwEs(2).ToString & "',
-												'" & DrwEs(23).ToString & "','" & DrwEs(8).ToString & "'," & DrwEs(7) & "," & DrwEs(10) & "," & DrwEs(19) & ",'" & Loc & "','" & Tanggal & "' ) ", ConnEs)
+						CmdEs = New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location) VALUES ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(1).ToString & "','" & DrwEs(5).ToString & "','" & DrwEs(2).ToString & "',
+												'" & DrwEs(23).ToString & "','" & DrwEs(8).ToString & "'," & DrwEs(7) & "," & DrwEs(10) & "," & DrwEs(19) & ",'" & Loc & "' ) ", ConnEs)
 						DrEs = CmdEs.ExecuteReader
 						DrEs.Close()
 						'WHERE NOT EXIST ( SELECT '" & DrwEs(1).ToString & "' FROM MP_CheckingOrder_Temp WHERE Proses_Status = 1  ) 
@@ -87,8 +87,8 @@ Public Class FormCheckingOrder
 					'ConnEsDup.Close()
 					' <-- End -->
 
-					CmdEsImport = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Tanggal_Proses)
-												  SELECT MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Tanggal_Proses 
+					CmdEsImport = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location)
+												  SELECT MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location
 												  FROM MP_CheckingOrder_Temp
                                                   WHERE MP_CheckingOrder_Temp.Order_Id NOT IN (SELECT Order_Id FROM MP_CheckingOrder)", ConnEs)
 					CmdEsImport.ExecuteNonQuery()
@@ -104,8 +104,8 @@ Public Class FormCheckingOrder
 		ElseIf ComboBoxPilihMP.Text = "Shopee" Then
 			Dim Loc As String
 			Loc = "PP342"
-			Dim Tanggal As Date
-			Tanggal = Today
+			'Dim Tanggal As Date
+			'Tanggal = Today
 
 			Try
 				Dim CariFile As New OpenFileDialog
@@ -150,9 +150,9 @@ Public Class FormCheckingOrder
 
 						Dim Quan As Integer = Integer.Parse(DrwEs1(17))
 
-						Dim CmdEs As New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Tanggal_Proses) 
+						Dim CmdEs As New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location) 
 												VALUES ('" & ComboBoxPilihMP.SelectedItem & "','" & DrwEs1(0).ToString & "','" & DrwEs1(11).ToString & "','" & DrwEs1(0).ToString & "','" & DrwEs1(4).ToString & "','" & DrwEs1(11).ToString & "',
-												'" & Quan & "','" & HargaFinal & "','" & FinalOngkir & "','" & Loc & "','" & Tanggal & "')", ConnEs)
+												'" & Quan & "','" & HargaFinal & "','" & FinalOngkir & "','" & Loc & "')", ConnEs)
 						DrEs1 = CmdEs.ExecuteReader
 						DrEs1.Close()
 					Next
@@ -186,8 +186,8 @@ Public Class FormCheckingOrder
 					'ConnEs.Close()
 					' <-- End -->
 
-					CmdEsImport = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Tanggal_Proses)
-												  SELECT MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location,Tanggal_Proses 
+					CmdEsImport = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location)
+												  SELECT MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location
 												  FROM MP_CheckingOrder_Temp
                                                   WHERE MP_CheckingOrder_Temp.Order_Id NOT IN (SELECT Order_Id FROM MP_CheckingOrder)", ConnEs)
 					CmdEsImport.ExecuteNonQuery()

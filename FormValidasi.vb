@@ -27,34 +27,36 @@ Public Class FormValidasi
         End If
     End Sub
     Private Sub ButtonProses_Click(sender As Object, e As EventArgs) Handles BtProses.Click
+        Dim Tanggal As Date
+        Tanggal = Today
 
         Dim idxRow As DataGridViewCheckBoxCell = DGVInvoice.Rows(0).Cells(5)
-            Dim intRow As Integer = idxRow.RowIndex
-            Try
-                Dim CheckedRows =
+        Dim intRow As Integer = idxRow.RowIndex
+        Try
+            Dim CheckedRows =
                     (
                         From Rows In DGVInvoice.Rows.Cast(Of DataGridViewRow)()
                         Where CBool(Rows.Cells(5).Value) = True
                     ).ToList
 
-                If CheckedRows.Count = 0 Then
-                    MsgBox("Checklist Data yang akan diupdate !!!")
-                    Exit Sub
-                Else
-                    For Each row As DataGridViewRow In CheckedRows
-                        Cmd = New SqlCommand("UPDATE MP_CheckingOrder set Proses_status=1 WHERE order_id in('" & row.Cells(1).Value & "') and isbn in('" & row.Cells(3).Value & "')", ConnectDb)
-                        Dr = Cmd.ExecuteReader
-                        Dr.Close()
-                    Next
-                    MsgBox("Update Succes !!!")
-                    Me.Close()
-                    FormCheckingOrder.Show()
-                    FormCheckingOrder.TextBoxScanIsbn.Clear()
-                    FormCheckingOrder.DGV_MPCheckingOrder.Columns.Clear()
-                End If
-            Catch ex As Exception
+            If CheckedRows.Count = 0 Then
+                MsgBox("Checklist Data yang akan diupdate !!!")
+                Exit Sub
+            Else
+                For Each row As DataGridViewRow In CheckedRows
+                    Cmd = New SqlCommand("UPDATE MP_CheckingOrder set Proses_status=1, Tanggal_Proses = '" & Tanggal & "' WHERE order_id in('" & row.Cells(1).Value & "') and isbn in('" & row.Cells(3).Value & "')", ConnectDb)
+                    Dr = Cmd.ExecuteReader
+                    Dr.Close()
+                Next
+                MsgBox("Update Succes !!!")
+                Me.Close()
+                FormCheckingOrder.Show()
+                FormCheckingOrder.TextBoxScanIsbn.Clear()
+                FormCheckingOrder.DGV_MPCheckingOrder.Columns.Clear()
+            End If
+        Catch ex As Exception
 
-            End Try
+        End Try
 
 
 
@@ -69,7 +71,7 @@ Public Class FormValidasi
     End Sub
 
     Private Sub BtCari_Click(sender As Object, e As EventArgs) Handles BtCari.Click
-
+        Dim Pembanding As Integer = 1
         Dim Hasil As Integer = 0
         'Dim chk As New DataGridViewCheckBoxColumn()
         'DGVInvoice.Columns.Add(chk)
@@ -93,17 +95,17 @@ Public Class FormValidasi
                         MsgBox(ex.InnerException)
                     End If
                 End Try
+                If DGVInvoice.Rows(CariBaris).Cells(4).Value = 1 Then
+                    DGVInvoice.Rows(CariBaris).Cells(5).Value = True
+                    BtProses.Enabled = True
 
-                DGVInvoice.Rows(CariBaris).Cells(5).Value = True
-                BtProses.Enabled = True
+                Else
+                    MsgBox("Pastikan Jumlah Buku " & DGVInvoice.Rows(CariBaris).Cells(4).Value)
+                    DGVInvoice.Rows(CariBaris).Cells(5).Value = True
+                    BtProses.Enabled = True
+                End If
+
             End If
-
-
-
-
-
-
-
 
         Next
         If Hasil = 0 Then

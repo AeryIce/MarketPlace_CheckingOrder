@@ -97,6 +97,8 @@ Public Class FormValidasi
                 End Try
                 If DGVInvoice.Rows(CariBaris).Cells(4).Value = 1 Then
                     DGVInvoice.Rows(CariBaris).Cells(5).Value = True
+
+
                     BtProses.Enabled = True
 
                 Else

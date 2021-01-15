@@ -16,8 +16,8 @@ Public Class FormCheckingOrder
 	Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
 
 		If ComboBoxPilihMP.Text = "TokoPedia" Then
-			Dim Loc As String
-			Loc = "PP343"
+			'Dim Loc As String
+			'Loc = "PP343"
 			'Dim Tanggal As Date
 			'Tanggal = Today
 			Try
@@ -44,20 +44,29 @@ Public Class FormCheckingOrder
 					Dim DrEs As SqlDataReader
 					Dim CmdEs As SqlCommand
 					Dim CmdEsDell As SqlCommand
-					Dim CmdEsImport As SqlCommand
+					'Dim CmdEsImport As SqlCommand
 
 					CmdEsDell = New SqlCommand("DELETE FROM MP_CheckingOrder_Temp WHERE MP = 'TokoPedia' ", ConnEs)
 					CmdEsDell.ExecuteNonQuery()
 
-					For Each DrwEs In DsEx.Tables(0).Rows
 
-						CmdEs = New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location) VALUES ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(1).ToString & "','" & DrwEs(5).ToString & "','" & DrwEs(2).ToString & "',
-												'" & DrwEs(23).ToString & "','" & DrwEs(8).ToString & "'," & DrwEs(7) & "," & DrwEs(10) & "," & DrwEs(19) & ",'" & Loc & "' ) ", ConnEs)
+
+					For Each DrwEs In DsEx.Tables(0).Rows
+						Dim Judul As String = DrwEs(6)
+						Judul = Judul.Replace("'", "''")
+
+						Dim Alamat As String = DrwEs(17)
+						Alamat = Alamat.Replace("'", "''")
+
+						CmdEs = New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga,Courrier,[Address],Nama_Cust,Nama_Penerima,No_Hp_Cus,Tanggal_Pesanan,Proses_Status) VALUES 
+											  ('" & ComboBoxPilihMP.SelectedItem & "', '" & DrwEs(2).ToString & "','" & DrwEs(23).ToString & "','" & DrwEs(8).ToString & "',
+											   '" & Judul & "'," & DrwEs(7) & "," & DrwEs(10) & ",'" & DrwEs(18).ToString & "','" & Alamat & "','" & DrwEs(13).ToString & "',
+											   '" & DrwEs(15).ToString & "','" & DrwEs(14).ToString & "','" & DrwEs(3).ToString & "','" & DrwEs(4).ToString & "' ) ", ConnEs)
 						DrEs = CmdEs.ExecuteReader
 						DrEs.Close()
 						'WHERE NOT EXIST ( SELECT '" & DrwEs(1).ToString & "' FROM MP_CheckingOrder_Temp WHERE Proses_Status = 1  ) 
 					Next
-
+					MsgBox("Import Tokopedia Done !!!!")
 
 					'<-- To Delete Duplicate Value -->
 					'Dim ConnEsDup As SqlConnection
@@ -87,15 +96,15 @@ Public Class FormCheckingOrder
 					'ConnEsDup.Close()
 					' <-- End -->
 
-					CmdEsImport = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location)
-												  SELECT MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location
-												  FROM MP_CheckingOrder_Temp
-                                                  WHERE MP_CheckingOrder_Temp.Order_Id NOT IN (SELECT Order_Id FROM MP_CheckingOrder)", ConnEs)
-					CmdEsImport.ExecuteNonQuery()
+					'CmdEsImport = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location)
+					'							  SELECT MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location
+					'							  FROM MP_CheckingOrder_Temp
+					'                                             WHERE MP_CheckingOrder_Temp.Order_Id NOT IN (SELECT Order_Id FROM MP_CheckingOrder)", ConnEs)
+					'CmdEsImport.ExecuteNonQuery()
 
 
 
-					MsgBox("Import Tokopedia Done !!!!")
+
 				End If
 			Catch ex As Exception
 

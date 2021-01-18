@@ -18,8 +18,7 @@ Public Class FormCheckingOrder
 		If ComboBoxPilihMP.Text = "TokoPedia" Then
 			'Dim Loc As String
 			'Loc = "PP343"
-			'Dim Tanggal As Date
-			'Tanggal = Today
+
 			Try
 				Dim CariFile As New OpenFileDialog
 				With CariFile
@@ -44,7 +43,8 @@ Public Class FormCheckingOrder
 					Dim DrEs As SqlDataReader
 					Dim CmdEs As SqlCommand
 					Dim CmdEsDell As SqlCommand
-					'Dim CmdEsImport As SqlCommand
+					Dim CmdEsImport As SqlCommand
+					Dim CmdUpdate As SqlCommand
 
 					CmdEsDell = New SqlCommand("DELETE FROM MP_CheckingOrder_Temp WHERE MP = 'TokoPedia' ", ConnEs)
 					CmdEsDell.ExecuteNonQuery()
@@ -66,7 +66,7 @@ Public Class FormCheckingOrder
 						DrEs.Close()
 						'WHERE NOT EXIST ( SELECT '" & DrwEs(1).ToString & "' FROM MP_CheckingOrder_Temp WHERE Proses_Status = 1  ) 
 					Next
-					MsgBox("Import Tokopedia Done !!!!")
+
 
 					'<-- To Delete Duplicate Value -->
 					'Dim ConnEsDup As SqlConnection
@@ -96,13 +96,23 @@ Public Class FormCheckingOrder
 					'ConnEsDup.Close()
 					' <-- End -->
 
-					'CmdEsImport = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location)
-					'							  SELECT MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location
-					'							  FROM MP_CheckingOrder_Temp
-					'                                             WHERE MP_CheckingOrder_Temp.Order_Id NOT IN (SELECT Order_Id FROM MP_CheckingOrder)", ConnEs)
-					'CmdEsImport.ExecuteNonQuery()
+					CmdEsImport = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga,Courrier,[Address],Nama_Cust,Nama_Penerima,No_Hp_Cus,Tanggal_Pesanan,Proses_Status)
+												  SELECT MP,Invoice_OrderID, Resi, ISBN, Judul, QTY, Harga, Courrier, [Address], Nama_Cust, Nama_Penerima, No_Hp_Cus, Tanggal_Pesanan,Proses_Status
+												  From MP_CheckingOrder_Temp
+                                                  Where MP_CheckingOrder_Temp.Invoice_OrderID Not In (Select Invoice_OrderID FROM MP_CheckingOrder)", ConnEs)
+					CmdEsImport.ExecuteNonQuery()
 
 
+					CmdUpdate = New SqlCommand("UPDATE MP_CheckingOrder  
+													SET Proses_Status = b.Proses_Status  , Tanggal_Selesei = GETDATE()
+													FROM MP_CheckingOrder a
+											     	INNER JOIN MP_CheckingOrder_Temp b 
+													ON
+													a.Invoice_OrderID = b.Invoice_OrderID 
+													WHERE a.Proses_Status LIKE '%Terkirim%' ", ConnEs)
+					CmdUpdate.ExecuteNonQuery()
+
+					MsgBox("Import Tokopedia Done !!!!")
 
 
 				End If
@@ -122,6 +132,7 @@ Public Class FormCheckingOrder
 					.Filter = " Shopee (*.xls)|*.xls|All Files (*.*)|*.* "
 					.FilterIndex = 1
 					.Title = "Pilih File"
+
 				End With
 
 				If CariFile.ShowDialog() = Windows.Forms.DialogResult.OK Then
@@ -142,6 +153,7 @@ Public Class FormCheckingOrder
 					Dim DrEs1 As SqlDataReader
 					Dim CmdEsDell1 As SqlCommand
 					Dim CmdEsImport As SqlCommand
+					Dim CmdUpdateShop As SqlCommand
 
 					CmdEsDell1 = New SqlCommand("DELETE FROM MP_CheckingOrder_Temp WHERE MP = 'Shopee' ", ConnEs)
 					CmdEsDell1.ExecuteNonQuery()
@@ -159,9 +171,21 @@ Public Class FormCheckingOrder
 
 						Dim Quan As Integer = Integer.Parse(DrwEs1(17))
 
-						Dim CmdEs As New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location) 
-												VALUES ('" & ComboBoxPilihMP.SelectedItem & "','" & DrwEs1(0).ToString & "','" & DrwEs1(11).ToString & "','" & DrwEs1(0).ToString & "','" & DrwEs1(4).ToString & "','" & DrwEs1(11).ToString & "',
-												'" & Quan & "','" & HargaFinal & "','" & FinalOngkir & "','" & Loc & "')", ConnEs)
+						Dim judul1 As String = DrwEs1(12)
+						judul1 = judul1.Replace("'", "''")
+
+						Dim alamat1 As String = DrwEs1(41)
+						alamat1 = alamat1.Replace("'", "''")
+
+						Dim penerima1 As String = DrwEs1(39)
+						penerima1 = penerima1.Replace("'", "''")
+
+						Dim namacust1 As String = DrwEs1(38)
+						namacust1 = namacust1.Replace("'", "''")
+
+						Dim CmdEs As New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga,Courrier,[Address],Nama_Cust,Nama_Penerima,No_Hp_Cus,Tanggal_Pesanan,Proses_Status) 
+													VALUES ('" & ComboBoxPilihMP.SelectedItem & "','" & DrwEs1(0).ToString & "','" & DrwEs1(4).ToString & "','" & DrwEs1(11).ToString & "','" & judul1 & "',
+															'" & Quan & "','" & HargaFinal & "','" & DrwEs1(5).ToString & "','" & alamat1 & "','" & namacust1 & "','" & penerima1 & "','" & DrwEs1(40).ToString & "','" & DrwEs1(9).ToString & "','" & DrwEs1(1).ToString & "')", ConnEs)
 						DrEs1 = CmdEs.ExecuteReader
 						DrEs1.Close()
 					Next
@@ -195,11 +219,20 @@ Public Class FormCheckingOrder
 					'ConnEs.Close()
 					' <-- End -->
 
-					CmdEsImport = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location)
-												  SELECT MP,Order_Id,Tokped_ProductID,Invoice,Resi,Isbn,Qty,Harga,Ongkir,Location
-												  FROM MP_CheckingOrder_Temp
-                                                  WHERE MP_CheckingOrder_Temp.Order_Id NOT IN (SELECT Order_Id FROM MP_CheckingOrder)", ConnEs)
+					CmdEsImport = New SqlCommand("INSERT INTO MP_CheckingOrder (MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga,Courrier,[Address],Nama_Cust,Nama_Penerima,No_Hp_Cus,Tanggal_Pesanan,Proses_Status)
+												  SELECT MP,Invoice_OrderID, Resi, ISBN, Judul, QTY, Harga, Courrier, [Address], Nama_Cust, Nama_Penerima, No_Hp_Cus, Tanggal_Pesanan,Proses_Status
+												  From MP_CheckingOrder_Temp
+                                                  Where MP_CheckingOrder_Temp.Invoice_OrderID Not In (Select Invoice_OrderID FROM MP_CheckingOrder)", ConnEs)
 					CmdEsImport.ExecuteNonQuery()
+
+					CmdUpdateShop = New SqlCommand("UPDATE MP_CheckingOrder  
+													SET Proses_Status = b.Proses_Status  , Tanggal_Selesei = GETDATE()
+													FROM MP_CheckingOrder a
+											     	INNER JOIN MP_CheckingOrder_Temp b 
+													ON
+													a.Invoice_OrderID = b.Invoice_OrderID 
+													WHERE a.Proses_Status LIKE '%Terkirim%' ", ConnEs)
+					CmdUpdateShop.ExecuteNonQuery()
 
 					MsgBox("Import Shopee Done!!!!")
 				End If
@@ -216,12 +249,12 @@ Public Class FormCheckingOrder
 	End Sub
 	Private Sub ButtonCariISBN_Click(sender As Object, e As EventArgs) Handles ButtonCariISBN.Click
 		Call Konek()
-		Cmd = New SqlCommand("SELECT * FROM MP_CheckingOrder_Temp WHERE isbn ='" & TextBoxScanIsbn.Text & "'", ConnectDb)
+		Cmd = New SqlCommand("SELECT * FROM MP_CheckingOrder WHERE isbn ='" & TextBoxScanIsbn.Text & "'", ConnectDb)
 		Dr = Cmd.ExecuteReader
 		Dr.Read()
 		If Dr.HasRows Then
 			Call Konek()
-			Da = New SqlDataAdapter("SELECT MP,Invoice,Order_id,Qty FROM MP_CheckingOrder_Temp WHERE isbn ='" & TextBoxScanIsbn.Text & "' AND Proses_Status is null", ConnectDb)
+			Da = New SqlDataAdapter("SELECT MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga FROM MP_CheckingOrder WHERE isbn ='" & TextBoxScanIsbn.Text & "' AND (Proses_Status  LIKE '%Pemesanan sedang diproses oleh penjual%' OR Proses_Status LIKE '%Perlu Dikirim%') ", ConnectDb)
 			Ds = New DataSet
 			Da.Fill(Ds)
 			DGV_MPCheckingOrder.DataSource = Ds.Tables(0)
@@ -242,12 +275,12 @@ Public Class FormCheckingOrder
 		selectedRow = DGV_MPCheckingOrder.Rows(index)
 
 		Try
-			Cmd = New SqlCommand("SELECT * FROM MP_CheckingOrder_Temp WHERE invoice = '" & selectedRow.Cells(1).Value & "'", ConnectDb)
+			Cmd = New SqlCommand("SELECT * FROM MP_CheckingOrder WHERE Invoice_OrderID = '" & selectedRow.Cells(1).Value & "'", ConnectDb)
 			Dr = Cmd.ExecuteReader
 			Dr.Read()
 			If Dr.HasRows Then
 				Call Konek()
-				Da = New SqlDataAdapter("SELECT MP,Order_id,Invoice,Isbn,Qty FROM MP_CheckingOrder_Temp WHERE invoice = '" & selectedRow.Cells(1).Value & "' AND Proses_Status is null", ConnectDb)
+				Da = New SqlDataAdapter("SELECT MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga FROM MP_CheckingOrder WHERE Invoice_OrderID = '" & selectedRow.Cells(1).Value & "' AND (Proses_Status  LIKE '%Pemesanan sedang diproses oleh penjual%' OR Proses_Status LIKE '%Perlu Dikirim%') ", ConnectDb)
 				Ds = New DataSet
 				Da.Fill(Ds)
 				FormValidasi.DGVInvoice.DataSource = Ds.Tables(0)

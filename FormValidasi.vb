@@ -30,13 +30,13 @@ Public Class FormValidasi
         Dim Tanggal As Date
         Tanggal = Today
 
-        Dim idxRow As DataGridViewCheckBoxCell = DGVInvoice.Rows(0).Cells(5)
+        Dim idxRow As DataGridViewCheckBoxCell = DGVInvoice.Rows(0).Cells(7)
         Dim intRow As Integer = idxRow.RowIndex
         Try
             Dim CheckedRows =
                     (
                         From Rows In DGVInvoice.Rows.Cast(Of DataGridViewRow)()
-                        Where CBool(Rows.Cells(5).Value) = True
+                        Where CBool(Rows.Cells(7).Value) = True
                     ).ToList
 
             If CheckedRows.Count = 0 Then
@@ -44,7 +44,7 @@ Public Class FormValidasi
                 Exit Sub
             Else
                 For Each row As DataGridViewRow In CheckedRows
-                    Cmd = New SqlCommand("UPDATE MP_CheckingOrder set Proses_status=1, Tanggal_Proses = '" & Tanggal & "' WHERE order_id in('" & row.Cells(1).Value & "') and isbn in('" & row.Cells(3).Value & "')", ConnectDb)
+                    Cmd = New SqlCommand("UPDATE MP_CheckingOrder set Proses_status = 'Terkirim', Tanggal_Proses = '" & Tanggal & "' WHERE Invoice_OrderID in('" & row.Cells(1).Value & "') and isbn in('" & row.Cells(3).Value & "')", ConnectDb)
                     Dr = Cmd.ExecuteReader
                     Dr.Close()
                 Next
@@ -95,15 +95,15 @@ Public Class FormValidasi
                         MsgBox(ex.InnerException)
                     End If
                 End Try
-                If DGVInvoice.Rows(CariBaris).Cells(4).Value = 1 Then
-                    DGVInvoice.Rows(CariBaris).Cells(5).Value = True
+                If DGVInvoice.Rows(CariBaris).Cells(5).Value = 1 Then
+                    DGVInvoice.Rows(CariBaris).Cells(7).Value = True
 
 
                     BtProses.Enabled = True
 
                 Else
-                    MsgBox("Pastikan Jumlah Buku " & DGVInvoice.Rows(CariBaris).Cells(4).Value)
-                    DGVInvoice.Rows(CariBaris).Cells(5).Value = True
+                    MsgBox("Pastikan Jumlah Buku " & DGVInvoice.Rows(CariBaris).Cells(5).Value)
+                    DGVInvoice.Rows(CariBaris).Cells(7).Value = True
                     BtProses.Enabled = True
                 End If
 

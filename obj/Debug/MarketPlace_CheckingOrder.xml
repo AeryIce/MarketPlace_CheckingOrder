@@ -27,6 +27,11 @@ MarketPlace_CheckingOrder
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.close_window_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.close_window_32px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -37,7 +42,42 @@ MarketPlace_CheckingOrder
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.Developing_soon__">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.email_send_30px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.handle_with_care_30px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.home_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.home_32px_White">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.L_w__pLOVR_oOhAj_1842_periplus_1522833402_1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.maximize_window_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.minimize_window_32px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

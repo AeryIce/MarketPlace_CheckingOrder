@@ -81,6 +81,12 @@
       <DependentUpon>FormCheckingOrder.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormHome.Designer.vb">
+      <DependentUpon>FormHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormValidasi.Designer.vb">
       <DependentUpon>FormValidasi.vb</DependentUpon>
     </Compile>
@@ -92,6 +98,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -107,6 +114,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormCheckingOrder.resx">
       <DependentUpon>FormCheckingOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHome.resx">
+      <DependentUpon>FormHome.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormValidasi.resx">
       <DependentUpon>FormValidasi.vb</DependentUpon>
@@ -154,6 +164,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\email_send_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\L-w__pLOVR_oOhAj-1842-periplus-1522833402_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize_window_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximize_window_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_window_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_32px_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Developing soon...png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\handle_with_care_30px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

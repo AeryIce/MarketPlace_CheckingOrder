@@ -29,10 +29,11 @@ Partial Class FormCheckingOrder
 		Me.GroupBoxImport = New System.Windows.Forms.GroupBox()
 		Me.ButtonImport = New System.Windows.Forms.Button()
 		Me.GroupBoxCheckingOrder = New System.Windows.Forms.GroupBox()
-		Me.ButtonExit = New System.Windows.Forms.Button()
 		Me.DGV_MPCheckingOrder = New System.Windows.Forms.DataGridView()
+		Me.ButtonExit = New System.Windows.Forms.Button()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.LabelStatusKoneksi = New System.Windows.Forms.Label()
+		Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
 		Me.GroupBoxCariOrderId.SuspendLayout()
 		Me.GroupBoxImport.SuspendLayout()
 		Me.GroupBoxCheckingOrder.SuspendLayout()
@@ -52,7 +53,7 @@ Partial Class FormCheckingOrder
 		'
 		Me.GroupBoxCariOrderId.Controls.Add(Me.ButtonCariISBN)
 		Me.GroupBoxCariOrderId.Controls.Add(Me.TextBoxScanIsbn)
-		Me.GroupBoxCariOrderId.Location = New System.Drawing.Point(12, 60)
+		Me.GroupBoxCariOrderId.Location = New System.Drawing.Point(303, 105)
 		Me.GroupBoxCariOrderId.Name = "GroupBoxCariOrderId"
 		Me.GroupBoxCariOrderId.Size = New System.Drawing.Size(260, 64)
 		Me.GroupBoxCariOrderId.TabIndex = 1
@@ -80,7 +81,7 @@ Partial Class FormCheckingOrder
 		'
 		Me.GroupBoxImport.Controls.Add(Me.ButtonImport)
 		Me.GroupBoxImport.Controls.Add(Me.ComboBoxPilihMP)
-		Me.GroupBoxImport.Location = New System.Drawing.Point(278, 60)
+		Me.GroupBoxImport.Location = New System.Drawing.Point(569, 105)
 		Me.GroupBoxImport.Name = "GroupBoxImport"
 		Me.GroupBoxImport.Size = New System.Drawing.Size(290, 64)
 		Me.GroupBoxImport.TabIndex = 2
@@ -102,21 +103,12 @@ Partial Class FormCheckingOrder
 		'GroupBoxCheckingOrder
 		'
 		Me.GroupBoxCheckingOrder.Controls.Add(Me.DGV_MPCheckingOrder)
-		Me.GroupBoxCheckingOrder.Location = New System.Drawing.Point(13, 131)
+		Me.GroupBoxCheckingOrder.Location = New System.Drawing.Point(304, 176)
 		Me.GroupBoxCheckingOrder.Name = "GroupBoxCheckingOrder"
 		Me.GroupBoxCheckingOrder.Size = New System.Drawing.Size(555, 185)
 		Me.GroupBoxCheckingOrder.TabIndex = 3
 		Me.GroupBoxCheckingOrder.TabStop = False
 		Me.GroupBoxCheckingOrder.Text = "Checking Order"
-		'
-		'ButtonExit
-		'
-		Me.ButtonExit.Location = New System.Drawing.Point(453, 322)
-		Me.ButtonExit.Name = "ButtonExit"
-		Me.ButtonExit.Size = New System.Drawing.Size(103, 50)
-		Me.ButtonExit.TabIndex = 3
-		Me.ButtonExit.Text = "EXIT"
-		Me.ButtonExit.UseVisualStyleBackColor = True
 		'
 		'DGV_MPCheckingOrder
 		'
@@ -130,11 +122,20 @@ Partial Class FormCheckingOrder
 		Me.DGV_MPCheckingOrder.Size = New System.Drawing.Size(537, 153)
 		Me.DGV_MPCheckingOrder.TabIndex = 0
 		'
+		'ButtonExit
+		'
+		Me.ButtonExit.Location = New System.Drawing.Point(744, 367)
+		Me.ButtonExit.Name = "ButtonExit"
+		Me.ButtonExit.Size = New System.Drawing.Size(103, 50)
+		Me.ButtonExit.TabIndex = 3
+		Me.ButtonExit.Text = "EXIT"
+		Me.ButtonExit.UseVisualStyleBackColor = True
+		'
 		'Label1
 		'
 		Me.Label1.AutoSize = True
 		Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label1.Location = New System.Drawing.Point(76, 23)
+		Me.Label1.Location = New System.Drawing.Point(367, 68)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(426, 25)
 		Me.Label1.TabIndex = 4
@@ -144,7 +145,7 @@ Partial Class FormCheckingOrder
 		'
 		Me.LabelStatusKoneksi.AutoSize = True
 		Me.LabelStatusKoneksi.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelStatusKoneksi.Location = New System.Drawing.Point(450, 391)
+		Me.LabelStatusKoneksi.Location = New System.Drawing.Point(741, 436)
 		Me.LabelStatusKoneksi.Name = "LabelStatusKoneksi"
 		Me.LabelStatusKoneksi.Size = New System.Drawing.Size(0, 9)
 		Me.LabelStatusKoneksi.TabIndex = 5
@@ -154,7 +155,7 @@ Partial Class FormCheckingOrder
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.SteelBlue
-		Me.ClientSize = New System.Drawing.Size(596, 413)
+		Me.ClientSize = New System.Drawing.Size(916, 490)
 		Me.Controls.Add(Me.ButtonExit)
 		Me.Controls.Add(Me.LabelStatusKoneksi)
 		Me.Controls.Add(Me.Label1)
@@ -187,5 +188,5 @@ Partial Class FormCheckingOrder
 	Friend WithEvents DGV_MPCheckingOrder As DataGridView
 	Friend WithEvents Label1 As Label
 	Public WithEvents LabelStatusKoneksi As Label
-
+	Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 End Class

@@ -81,6 +81,12 @@
       <DependentUpon>FormCheckingOrder.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormDashboard.Designer.vb">
+      <DependentUpon>FormDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormHome.Designer.vb">
       <DependentUpon>FormHome.vb</DependentUpon>
     </Compile>
@@ -92,6 +98,14 @@
     </Compile>
     <Compile Include="FormValidasi.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INVDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>INVDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="INVDataSet.vb">
+      <DependentUpon>INVDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ModuleKoneksi.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -115,6 +129,9 @@
     <EmbeddedResource Include="FormCheckingOrder.resx">
       <DependentUpon>FormCheckingOrder.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboard.resx">
+      <DependentUpon>FormDashboard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.vb</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +147,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="INVDataSet.xsc">
+      <DependentUpon>INVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="INVDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>INVDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="INVDataSet.xss">
+      <DependentUpon>INVDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -164,30 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\email_send_30px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\L-w__pLOVR_oOhAj-1842-periplus-1522833402_1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minimize_window_32px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\maximize_window_32px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\close_window_24px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\home_32px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\home_32px_White.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Developing soon...png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\handle_with_care_30px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

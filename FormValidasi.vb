@@ -44,7 +44,7 @@ Public Class FormValidasi
                 Exit Sub
             Else
                 For Each row As DataGridViewRow In CheckedRows
-                    Cmd = New SqlCommand("UPDATE MP_CheckingOrder set Proses_status = 'Terkirim', Tanggal_Proses = '" & Tanggal & "' WHERE Invoice_OrderID in('" & row.Cells(1).Value & "') and isbn in('" & row.Cells(3).Value & "')", ConnectDb)
+                    Cmd = New SqlCommand("UPDATE MP_CheckingOrder set Proses_status = 'Terkirim', Tanggal_Kirim = '" & Tanggal & "' WHERE Invoice_OrderID in('" & row.Cells(1).Value & "') and isbn in('" & row.Cells(3).Value & "')", ConnectDb)
                     Dr = Cmd.ExecuteReader
                     Dr.Close()
                 Next

@@ -155,7 +155,7 @@ Public Class FormCheckingOrder
 
 
 					CmdUpdate = New SqlCommand("UPDATE MP_CheckingOrder  
-													SET Proses_Status = b.Proses_Status  , Tanggal_Selesei = GETDATE()
+													SET Proses_Status = b.Proses_Status  , Tanggal_Selesai = GETDATE()
 													FROM MP_CheckingOrder a
 											     	INNER JOIN MP_CheckingOrder_Temp b 
 													ON
@@ -274,7 +274,7 @@ Public Class FormCheckingOrder
 					CmdEsImportShop.ExecuteNonQuery()
 
 					CmdUpdateShop = New SqlCommand("UPDATE MP_CheckingOrder  
-													SET Proses_Status = b.Proses_Status , Tanggal_Selesei = GETDATE()
+													SET Proses_Status = b.Proses_Status , Tanggal_Selesai = GETDATE()
 													FROM MP_CheckingOrder a
 											     	INNER JOIN MP_CheckingOrder_Temp b 
 													ON
@@ -297,7 +297,7 @@ Public Class FormCheckingOrder
 	End Sub
 	Private Sub ButtonCariISBN_Click(sender As Object, e As EventArgs) Handles ButtonCariISBN.Click
 		Call Konek()
-		Cmd = New SqlCommand("SELECT * FROM MP_CheckingOrder WHERE isbn ='" & TextBoxScanIsbn.Text & "'", ConnectDb)
+		Cmd = New SqlCommand("SELECT * FROM MP_CheckingOrder WHERE isbn ='" & TextBoxScanIsbn.Text & "' ", ConnectDb)
 		Dr = Cmd.ExecuteReader
 		Dr.Read()
 		If Dr.HasRows Then
@@ -306,9 +306,28 @@ Public Class FormCheckingOrder
 			Ds = New DataSet
 			Da.Fill(Ds)
 			DGV_MPCheckingOrder.DataSource = Ds.Tables(0)
+			TextBoxScanIsbn.Text = ""
+			TextBoxScanIsbn.Focus()
 		Else
-			MsgBox("Data Yang Dicari Sudah Terproses!!!")
-		End If
+			Call Konek()
+			Cmd = New SqlCommand("SELECT * FROM MP_CheckingOrder WHERE Invoice_OrderID ='" & TextBoxScanIsbn.Text & "' ", ConnectDb)
+			Dr = Cmd.ExecuteReader
+			Dr.Read()
+			If Dr.HasRows Then
+				Call Konek()
+				Da = New SqlDataAdapter("SELECT MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga FROM MP_CheckingOrder WHERE Invoice_OrderID ='" & TextBoxScanIsbn.Text & "' AND (Proses_Status  LIKE '%Pemesanan sedang diproses oleh penjual%' OR Proses_Status LIKE '%Perlu Dikirim%') ", ConnectDb)
+				Ds = New DataSet
+				Da.Fill(Ds)
+				DGV_MPCheckingOrder.DataSource = Ds.Tables(0)
+				TextBoxScanIsbn.Text = ""
+				TextBoxScanIsbn.Focus()
+			Else
+
+				MsgBox("Silahkan Lakukan Import Data Terbaru")
+
+			End If
+			End if
+
 	End Sub
 	Private Sub TextBoxScanIsbn_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxScanIsbn.KeyPress
 		If e.KeyChar = Convert.ToChar(13) Then

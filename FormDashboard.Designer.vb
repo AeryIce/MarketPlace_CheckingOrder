@@ -26,9 +26,18 @@ Partial Class FormDashboard
 		Me.GBPerformance = New System.Windows.Forms.GroupBox()
 		Me.TLPSUmmary = New System.Windows.Forms.TableLayoutPanel()
 		Me.PnSalesToday = New System.Windows.Forms.Panel()
+		Me.LbNominalSales = New System.Windows.Forms.Label()
+		Me.LbSales = New System.Windows.Forms.Label()
 		Me.PnProcessToday = New System.Windows.Forms.Panel()
+		Me.LbJmlDiproses = New System.Windows.Forms.Label()
+		Me.LbDiproses = New System.Windows.Forms.Label()
 		Me.PnLastSales = New System.Windows.Forms.Panel()
+		Me.LbNominalLastSales = New System.Windows.Forms.Label()
+		Me.LbTglLastSales = New System.Windows.Forms.Label()
+		Me.LbLastSales = New System.Windows.Forms.Label()
 		Me.PnOrderToday = New System.Windows.Forms.Panel()
+		Me.LbPesanan = New System.Windows.Forms.Label()
+		Me.LbOrderToday = New System.Windows.Forms.Label()
 		Me.MonthCalendar = New System.Windows.Forms.MonthCalendar()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.DGVDone = New System.Windows.Forms.DataGridView()
@@ -40,15 +49,6 @@ Partial Class FormDashboard
 		Me.MPCheckingOrderBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		Me.INVDataSet = New MarketPlace_CheckingOrder.INVDataSet()
 		Me.MP_CheckingOrderTableAdapter = New MarketPlace_CheckingOrder.INVDataSetTableAdapters.MP_CheckingOrderTableAdapter()
-		Me.LbLastSales = New System.Windows.Forms.Label()
-		Me.LbTglLastSales = New System.Windows.Forms.Label()
-		Me.LbNominalLastSales = New System.Windows.Forms.Label()
-		Me.LbOrderToday = New System.Windows.Forms.Label()
-		Me.LbPesanan = New System.Windows.Forms.Label()
-		Me.LbDiproses = New System.Windows.Forms.Label()
-		Me.LbJmlDiproses = New System.Windows.Forms.Label()
-		Me.LbSales = New System.Windows.Forms.Label()
-		Me.LbNominalSales = New System.Windows.Forms.Label()
 		Me.GBPerformance.SuspendLayout()
 		Me.TLPSUmmary.SuspendLayout()
 		Me.PnSalesToday.SuspendLayout()
@@ -68,7 +68,7 @@ Partial Class FormDashboard
 		Me.GBPerformance.Font = New System.Drawing.Font("Trebuchet MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GBPerformance.Location = New System.Drawing.Point(12, 4)
 		Me.GBPerformance.Name = "GBPerformance"
-		Me.GBPerformance.Size = New System.Drawing.Size(635, 170)
+		Me.GBPerformance.Size = New System.Drawing.Size(507, 181)
 		Me.GBPerformance.TabIndex = 0
 		Me.GBPerformance.TabStop = False
 		Me.GBPerformance.Text = "Summary"
@@ -89,7 +89,7 @@ Partial Class FormDashboard
 		Me.TLPSUmmary.Name = "TLPSUmmary"
 		Me.TLPSUmmary.RowCount = 1
 		Me.TLPSUmmary.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TLPSUmmary.Size = New System.Drawing.Size(623, 145)
+		Me.TLPSUmmary.Size = New System.Drawing.Size(490, 151)
 		Me.TLPSUmmary.TabIndex = 0
 		'
 		'PnSalesToday
@@ -98,10 +98,30 @@ Partial Class FormDashboard
 		Me.PnSalesToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.PnSalesToday.Controls.Add(Me.LbNominalSales)
 		Me.PnSalesToday.Controls.Add(Me.LbSales)
-		Me.PnSalesToday.Location = New System.Drawing.Point(468, 3)
+		Me.PnSalesToday.Location = New System.Drawing.Point(369, 3)
 		Me.PnSalesToday.Name = "PnSalesToday"
-		Me.PnSalesToday.Size = New System.Drawing.Size(149, 139)
+		Me.PnSalesToday.Size = New System.Drawing.Size(116, 145)
 		Me.PnSalesToday.TabIndex = 3
+		'
+		'LbNominalSales
+		'
+		Me.LbNominalSales.AutoSize = True
+		Me.LbNominalSales.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbNominalSales.Location = New System.Drawing.Point(3, 84)
+		Me.LbNominalSales.Name = "LbNominalSales"
+		Me.LbNominalSales.Size = New System.Drawing.Size(124, 19)
+		Me.LbNominalSales.TabIndex = 8
+		Me.LbNominalSales.Text = "Nominal Sales"
+		'
+		'LbSales
+		'
+		Me.LbSales.AutoSize = True
+		Me.LbSales.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbSales.Location = New System.Drawing.Point(17, 8)
+		Me.LbSales.Name = "LbSales"
+		Me.LbSales.Size = New System.Drawing.Size(52, 19)
+		Me.LbSales.TabIndex = 7
+		Me.LbSales.Text = "Sales"
 		'
 		'PnProcessToday
 		'
@@ -109,10 +129,30 @@ Partial Class FormDashboard
 		Me.PnProcessToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.PnProcessToday.Controls.Add(Me.LbJmlDiproses)
 		Me.PnProcessToday.Controls.Add(Me.LbDiproses)
-		Me.PnProcessToday.Location = New System.Drawing.Point(313, 3)
+		Me.PnProcessToday.Location = New System.Drawing.Point(247, 3)
 		Me.PnProcessToday.Name = "PnProcessToday"
-		Me.PnProcessToday.Size = New System.Drawing.Size(149, 139)
+		Me.PnProcessToday.Size = New System.Drawing.Size(116, 145)
 		Me.PnProcessToday.TabIndex = 2
+		'
+		'LbJmlDiproses
+		'
+		Me.LbJmlDiproses.AutoSize = True
+		Me.LbJmlDiproses.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbJmlDiproses.Location = New System.Drawing.Point(5, 84)
+		Me.LbJmlDiproses.Name = "LbJmlDiproses"
+		Me.LbJmlDiproses.Size = New System.Drawing.Size(114, 19)
+		Me.LbJmlDiproses.TabIndex = 6
+		Me.LbJmlDiproses.Text = "Sdh Diproses"
+		'
+		'LbDiproses
+		'
+		Me.LbDiproses.AutoSize = True
+		Me.LbDiproses.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbDiproses.Location = New System.Drawing.Point(14, 8)
+		Me.LbDiproses.Name = "LbDiproses"
+		Me.LbDiproses.Size = New System.Drawing.Size(79, 19)
+		Me.LbDiproses.TabIndex = 5
+		Me.LbDiproses.Text = "Diproses"
 		'
 		'PnLastSales
 		'
@@ -123,8 +163,38 @@ Partial Class FormDashboard
 		Me.PnLastSales.Controls.Add(Me.LbLastSales)
 		Me.PnLastSales.Location = New System.Drawing.Point(3, 3)
 		Me.PnLastSales.Name = "PnLastSales"
-		Me.PnLastSales.Size = New System.Drawing.Size(149, 139)
+		Me.PnLastSales.Size = New System.Drawing.Size(116, 145)
 		Me.PnLastSales.TabIndex = 0
+		'
+		'LbNominalLastSales
+		'
+		Me.LbNominalLastSales.AutoSize = True
+		Me.LbNominalLastSales.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbNominalLastSales.Location = New System.Drawing.Point(-2, 80)
+		Me.LbNominalLastSales.Name = "LbNominalLastSales"
+		Me.LbNominalLastSales.Size = New System.Drawing.Size(97, 25)
+		Me.LbNominalLastSales.TabIndex = 3
+		Me.LbNominalLastSales.Text = "Nominal"
+		'
+		'LbTglLastSales
+		'
+		Me.LbTglLastSales.AutoSize = True
+		Me.LbTglLastSales.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbTglLastSales.Location = New System.Drawing.Point(15, 26)
+		Me.LbTglLastSales.Name = "LbTglLastSales"
+		Me.LbTglLastSales.Size = New System.Drawing.Size(78, 18)
+		Me.LbTglLastSales.TabIndex = 3
+		Me.LbTglLastSales.Text = "tgl kemaren"
+		'
+		'LbLastSales
+		'
+		Me.LbLastSales.AutoSize = True
+		Me.LbLastSales.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbLastSales.Location = New System.Drawing.Point(11, 8)
+		Me.LbLastSales.Name = "LbLastSales"
+		Me.LbLastSales.Size = New System.Drawing.Size(91, 19)
+		Me.LbLastSales.TabIndex = 3
+		Me.LbLastSales.Text = "Last Sales"
 		'
 		'PnOrderToday
 		'
@@ -132,16 +202,36 @@ Partial Class FormDashboard
 		Me.PnOrderToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.PnOrderToday.Controls.Add(Me.LbPesanan)
 		Me.PnOrderToday.Controls.Add(Me.LbOrderToday)
-		Me.PnOrderToday.Location = New System.Drawing.Point(158, 3)
+		Me.PnOrderToday.Location = New System.Drawing.Point(125, 3)
 		Me.PnOrderToday.Name = "PnOrderToday"
-		Me.PnOrderToday.Size = New System.Drawing.Size(149, 139)
+		Me.PnOrderToday.Size = New System.Drawing.Size(116, 145)
 		Me.PnOrderToday.TabIndex = 1
+		'
+		'LbPesanan
+		'
+		Me.LbPesanan.AutoSize = True
+		Me.LbPesanan.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbPesanan.Location = New System.Drawing.Point(-6, 80)
+		Me.LbPesanan.Name = "LbPesanan"
+		Me.LbPesanan.Size = New System.Drawing.Size(147, 25)
+		Me.LbPesanan.TabIndex = 4
+		Me.LbPesanan.Text = "Jml Pesanan"
+		'
+		'LbOrderToday
+		'
+		Me.LbOrderToday.AutoSize = True
+		Me.LbOrderToday.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbOrderToday.Location = New System.Drawing.Point(10, 8)
+		Me.LbOrderToday.Name = "LbOrderToday"
+		Me.LbOrderToday.Size = New System.Drawing.Size(78, 19)
+		Me.LbOrderToday.TabIndex = 4
+		Me.LbOrderToday.Text = "Pesanan"
 		'
 		'MonthCalendar
 		'
 		Me.MonthCalendar.BackColor = System.Drawing.Color.LightSeaGreen
 		Me.MonthCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Monday
-		Me.MonthCalendar.Location = New System.Drawing.Point(687, 12)
+		Me.MonthCalendar.Location = New System.Drawing.Point(547, 12)
 		Me.MonthCalendar.Name = "MonthCalendar"
 		Me.MonthCalendar.TabIndex = 1
 		'
@@ -227,102 +317,12 @@ Partial Class FormDashboard
 		'
 		Me.MP_CheckingOrderTableAdapter.ClearBeforeFill = True
 		'
-		'LbLastSales
-		'
-		Me.LbLastSales.AutoSize = True
-		Me.LbLastSales.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbLastSales.Location = New System.Drawing.Point(11, 8)
-		Me.LbLastSales.Name = "LbLastSales"
-		Me.LbLastSales.Size = New System.Drawing.Size(91, 19)
-		Me.LbLastSales.TabIndex = 3
-		Me.LbLastSales.Text = "Last Sales"
-		'
-		'LbTglLastSales
-		'
-		Me.LbTglLastSales.AutoSize = True
-		Me.LbTglLastSales.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbTglLastSales.Location = New System.Drawing.Point(15, 26)
-		Me.LbTglLastSales.Name = "LbTglLastSales"
-		Me.LbTglLastSales.Size = New System.Drawing.Size(78, 18)
-		Me.LbTglLastSales.TabIndex = 3
-		Me.LbTglLastSales.Text = "tgl kemaren"
-		'
-		'LbNominalLastSales
-		'
-		Me.LbNominalLastSales.AutoSize = True
-		Me.LbNominalLastSales.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbNominalLastSales.Location = New System.Drawing.Point(13, 68)
-		Me.LbNominalLastSales.Name = "LbNominalLastSales"
-		Me.LbNominalLastSales.Size = New System.Drawing.Size(97, 25)
-		Me.LbNominalLastSales.TabIndex = 3
-		Me.LbNominalLastSales.Text = "Nominal"
-		'
-		'LbOrderToday
-		'
-		Me.LbOrderToday.AutoSize = True
-		Me.LbOrderToday.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbOrderToday.Location = New System.Drawing.Point(10, 8)
-		Me.LbOrderToday.Name = "LbOrderToday"
-		Me.LbOrderToday.Size = New System.Drawing.Size(78, 19)
-		Me.LbOrderToday.TabIndex = 4
-		Me.LbOrderToday.Text = "Pesanan"
-		'
-		'LbPesanan
-		'
-		Me.LbPesanan.AutoSize = True
-		Me.LbPesanan.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbPesanan.Location = New System.Drawing.Point(-3, 68)
-		Me.LbPesanan.Name = "LbPesanan"
-		Me.LbPesanan.Size = New System.Drawing.Size(147, 25)
-		Me.LbPesanan.TabIndex = 4
-		Me.LbPesanan.Text = "Jml Pesanan"
-		'
-		'LbDiproses
-		'
-		Me.LbDiproses.AutoSize = True
-		Me.LbDiproses.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbDiproses.Location = New System.Drawing.Point(14, 8)
-		Me.LbDiproses.Name = "LbDiproses"
-		Me.LbDiproses.Size = New System.Drawing.Size(79, 19)
-		Me.LbDiproses.TabIndex = 5
-		Me.LbDiproses.Text = "Diproses"
-		'
-		'LbJmlDiproses
-		'
-		Me.LbJmlDiproses.AutoSize = True
-		Me.LbJmlDiproses.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbJmlDiproses.Location = New System.Drawing.Point(14, 72)
-		Me.LbJmlDiproses.Name = "LbJmlDiproses"
-		Me.LbJmlDiproses.Size = New System.Drawing.Size(114, 19)
-		Me.LbJmlDiproses.TabIndex = 6
-		Me.LbJmlDiproses.Text = "Sdh Diproses"
-		'
-		'LbSales
-		'
-		Me.LbSales.AutoSize = True
-		Me.LbSales.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbSales.Location = New System.Drawing.Point(17, 8)
-		Me.LbSales.Name = "LbSales"
-		Me.LbSales.Size = New System.Drawing.Size(52, 19)
-		Me.LbSales.TabIndex = 7
-		Me.LbSales.Text = "Sales"
-		'
-		'LbNominalSales
-		'
-		Me.LbNominalSales.AutoSize = True
-		Me.LbNominalSales.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbNominalSales.Location = New System.Drawing.Point(17, 74)
-		Me.LbNominalSales.Name = "LbNominalSales"
-		Me.LbNominalSales.Size = New System.Drawing.Size(124, 19)
-		Me.LbNominalSales.TabIndex = 8
-		Me.LbNominalSales.Text = "Nominal Sales"
-		'
 		'FormDashboard
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.LightSkyBlue
-		Me.ClientSize = New System.Drawing.Size(932, 480)
+		Me.ClientSize = New System.Drawing.Size(844, 519)
 		Me.Controls.Add(Me.GroupBox1)
 		Me.Controls.Add(Me.MonthCalendar)
 		Me.Controls.Add(Me.GBPerformance)

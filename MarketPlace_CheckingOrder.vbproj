@@ -193,5 +193,11 @@
   <ItemGroup>
     <None Include="Resources\email_send_30px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping_cart_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrator_male_32px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

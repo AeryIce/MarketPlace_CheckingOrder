@@ -191,7 +191,7 @@ Public Class FormCheckingOrder
 					Dim ConnEx As New OleDbConnection(" Provider = Microsoft.ACE.OLEDB.12.0; Data Source = '" & NamaFile & "';Extended Properties = ""Excel 12.0 xml;HDR = Yes"" ")
 					ConnEx.Open()
 
-					Dim DaEx1 As New OleDbDataAdapter("SELECT * FROM [orders$A1:AR5000]", ConnEx)
+					Dim DaEx1 As New OleDbDataAdapter("SELECT * FROM [orders$A1:AS5000]", ConnEx)
 					DaEx1.TableMappings.Add("'" & NamaFile & "'", "MP_CheckingOrder_Temp")
 					Dim DsEx1 As New DataSet
 					Dim DtEx1 As New DataTable
@@ -211,31 +211,66 @@ Public Class FormCheckingOrder
 					CmdEsDell1.ExecuteNonQuery()
 
 					For Each DrwEs1 In DsEx1.Tables(0).Rows
-						Dim HargaAwal As String = DrwEs1(16)
-						Dim harga As String = HargaAwal.Replace("Rp", String.Empty)
-						HargaAwal = harga.Replace(".", String.Empty)
-						Dim HargaFinal As Integer = Integer.Parse(HargaAwal)
 
-						Dim Quan As Integer = Integer.Parse(DrwEs1(17))
 
-						Dim judul1 As String = DrwEs1(12)
-						judul1 = judul1.Replace("'", "''")
+						If DrwEs1(38).ToString = "" Then
 
-						Dim alamat1 As String = DrwEs1(41)
-						alamat1 = alamat1.Replace("'", "''")
 
-						Dim penerima1 As String = DrwEs1(39)
-						penerima1 = penerima1.Replace("'", "''")
+							Dim HargaAwal As String = DrwEs1(16)
+							Dim harga As String = HargaAwal.Replace("Rp", String.Empty)
+							HargaAwal = harga.Replace(".", String.Empty)
+							Dim HargaFinal As Integer = Integer.Parse(HargaAwal)
 
-						Dim namacust1 As String = DrwEs1(38)
-						namacust1 = namacust1.Replace("'", "''")
+							Dim Quan As Integer = Integer.Parse(DrwEs1(17))
 
-						CmdEs1 = New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga,Courrier,[Address],Nama_Cust,Nama_Penerima,No_Hp_Cus,Tanggal_Pesanan,Proses_Status) 
+							Dim judul1 As String = DrwEs1(12)
+							judul1 = judul1.Replace("'", "''")
+
+							Dim alamat1 As String = DrwEs1(41)
+							alamat1 = alamat1.Replace("'", "''")
+
+							Dim penerima1 As String = DrwEs1(39)
+							penerima1 = penerima1.Replace("'", "''")
+
+
+							CmdEs1 = New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga,Courrier,[Address],Nama_Cust,Nama_Penerima,No_Hp_Cus,Tanggal_Pesanan,Proses_Status) 
 													VALUES ('" & ComboBoxPilihMP.SelectedItem & "','" & DrwEs1(0).ToString & "','" & DrwEs1(4).ToString & "','" & DrwEs1(11).ToString & "','" & judul1 & "',
-															'" & Quan & "','" & HargaFinal & "','" & DrwEs1(5).ToString & "','" & alamat1 & "','" & namacust1 & "','" & penerima1 & "','" & DrwEs1(40).ToString & "',
+															'" & Quan & "','" & HargaFinal & "','" & DrwEs1(5).ToString & "','" & alamat1 & "','" & penerima1 & "','" & penerima1 & "','" & DrwEs1(40).ToString & "',
 															'" & DrwEs1(9).ToString & "','" & DrwEs1(1).ToString & "')", ConnEs)
-						DrEs1 = CmdEs1.ExecuteReader
-						DrEs1.Close()
+							DrEs1 = CmdEs1.ExecuteReader
+							DrEs1.Close()
+
+						Else
+
+							Dim HargaAwal As String = DrwEs1(16)
+							Dim harga As String = HargaAwal.Replace("Rp", String.Empty)
+							HargaAwal = harga.Replace(".", String.Empty)
+							Dim HargaFinal As Integer = Integer.Parse(HargaAwal)
+
+							Dim Quan As Integer = Integer.Parse(DrwEs1(17))
+
+							Dim judul1 As String = DrwEs1(12)
+							judul1 = judul1.Replace("'", "''")
+
+							Dim alamat1 As String = DrwEs1(41)
+							alamat1 = alamat1.Replace("'", "''")
+
+							Dim penerima1 As String = DrwEs1(39)
+							penerima1 = penerima1.Replace("'", "''")
+
+							Dim namacust1 As String = DrwEs1(38)
+							namacust1 = namacust1.Replace("'", "''")
+
+							CmdEs1 = New SqlCommand("INSERT INTO MP_CheckingOrder_Temp (MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga,Courrier,[Address],Nama_Cust,Nama_Penerima,No_Hp_Cus,Tanggal_Pesanan,Proses_Status) 
+														VALUES ('" & ComboBoxPilihMP.SelectedItem & "','" & DrwEs1(0).ToString & "','" & DrwEs1(4).ToString & "','" & DrwEs1(11).ToString & "','" & judul1 & "',
+																'" & Quan & "','" & HargaFinal & "','" & DrwEs1(5).ToString & "','" & alamat1 & "','" & namacust1 & "','" & penerima1 & "','" & DrwEs1(40).ToString & "',
+																'" & DrwEs1(9).ToString & "','" & DrwEs1(1).ToString & "')", ConnEs)
+							DrEs1 = CmdEs1.ExecuteReader
+							DrEs1.Close()
+
+						End If
+
+
 					Next
 
 					'<-- Syntax To delete Duplicate Value -->
@@ -306,9 +341,17 @@ Public Class FormCheckingOrder
 			Ds = New DataSet
 			Da.Fill(Ds)
 			DGV_MPCheckingOrder.DataSource = Ds.Tables(0)
-			TextBoxScanIsbn.Text = ""
+			'TextBoxScanIsbn.Text = ""
+			For Baris As Integer = 0 To DGV_MPCheckingOrder.Rows.Count - 1
+				If DGV_MPCheckingOrder.Rows(Baris).Cells(0).Value = "TokoPedia" Then
+					DGV_MPCheckingOrder.Rows(Baris).DefaultCellStyle.BackColor = Color.LightBlue
+				Else
+					DGV_MPCheckingOrder.Rows(Baris).DefaultCellStyle.BackColor = Color.Pink
+
+				End If
+			Next
 			TextBoxScanIsbn.Focus()
-		Else
+				Else
 			Call Konek()
 			Cmd = New SqlCommand("SELECT * FROM MP_CheckingOrder WHERE Invoice_OrderID ='" & TextBoxScanIsbn.Text & "' ", ConnectDb)
 			Dr = Cmd.ExecuteReader
@@ -319,7 +362,15 @@ Public Class FormCheckingOrder
 				Ds = New DataSet
 				Da.Fill(Ds)
 				DGV_MPCheckingOrder.DataSource = Ds.Tables(0)
-				TextBoxScanIsbn.Text = ""
+				'TextBoxScanIsbn.Text = ""
+				For Baris As Integer = 0 To DGV_MPCheckingOrder.Rows.Count - 1
+					If DGV_MPCheckingOrder.Rows(Baris).Cells(0).Value = "TokoPedia" Then
+						DGV_MPCheckingOrder.Rows(Baris).DefaultCellStyle.BackColor = Color.LightBlue
+					Else
+						DGV_MPCheckingOrder.Rows(Baris).DefaultCellStyle.BackColor = Color.Pink
+
+					End If
+				Next
 				TextBoxScanIsbn.Focus()
 			Else
 
@@ -363,5 +414,57 @@ Public Class FormCheckingOrder
 		DGV_MPCheckingOrder.Columns.Clear()
 	End Sub
 
+	Private Sub RBShopee_CheckedChanged(sender As Object, e As EventArgs) Handles RBShopee.CheckedChanged
+		Call Konek()
+		Da = New SqlDataAdapter("SELECT MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga FROM MP_CheckingOrder WHERE isbn ='" & TextBoxScanIsbn.Text & "' AND (Proses_Status  LIKE '%Pemesanan sedang diproses oleh penjual%' OR Proses_Status LIKE '%Perlu Dikirim%') AND MP = 'Shopee' ", ConnectDb)
+		Ds = New DataSet
+		Da.Fill(Ds)
+		DGV_MPCheckingOrder.DataSource = Ds.Tables(0)
+		'TextBoxScanIsbn.Text = ""
+		For Baris As Integer = 0 To DGV_MPCheckingOrder.Rows.Count - 1
+			If DGV_MPCheckingOrder.Rows(Baris).Cells(0).Value = "TokoPedia" Then
+				DGV_MPCheckingOrder.Rows(Baris).DefaultCellStyle.BackColor = Color.LightBlue
+			Else
+				DGV_MPCheckingOrder.Rows(Baris).DefaultCellStyle.BackColor = Color.Yellow
 
+			End If
+		Next
+		TextBoxScanIsbn.Focus()
+	End Sub
+
+	Private Sub RBTokopedia_CheckedChanged(sender As Object, e As EventArgs) Handles RBTokopedia.CheckedChanged
+		Call Konek()
+		Da = New SqlDataAdapter("SELECT MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga FROM MP_CheckingOrder WHERE isbn ='" & TextBoxScanIsbn.Text & "' AND (Proses_Status  LIKE '%Pemesanan sedang diproses oleh penjual%' OR Proses_Status LIKE '%Perlu Dikirim%') AND MP = 'Tokopedia' ", ConnectDb)
+		Ds = New DataSet
+		Da.Fill(Ds)
+		DGV_MPCheckingOrder.DataSource = Ds.Tables(0)
+		'TextBoxScanIsbn.Text = ""
+		For Baris As Integer = 0 To DGV_MPCheckingOrder.Rows.Count - 1
+			If DGV_MPCheckingOrder.Rows(Baris).Cells(0).Value = "TokoPedia" Then
+				DGV_MPCheckingOrder.Rows(Baris).DefaultCellStyle.BackColor = Color.LightBlue
+			Else
+				DGV_MPCheckingOrder.Rows(Baris).DefaultCellStyle.BackColor = Color.Pink
+
+			End If
+		Next
+		TextBoxScanIsbn.Focus()
+	End Sub
+
+	Private Sub RBSemua_CheckedChanged(sender As Object, e As EventArgs) Handles RBSemua.CheckedChanged
+		Call Konek()
+		Da = New SqlDataAdapter("SELECT MP,Invoice_OrderID,Resi,ISBN,Judul,QTY,Harga FROM MP_CheckingOrder WHERE isbn ='" & TextBoxScanIsbn.Text & "' AND (Proses_Status  LIKE '%Pemesanan sedang diproses oleh penjual%' OR Proses_Status LIKE '%Perlu Dikirim%')  ", ConnectDb)
+		Ds = New DataSet
+		Da.Fill(Ds)
+		DGV_MPCheckingOrder.DataSource = Ds.Tables(0)
+		'TextBoxScanIsbn.Text = ""
+		For Baris As Integer = 0 To DGV_MPCheckingOrder.Rows.Count - 1
+			If DGV_MPCheckingOrder.Rows(Baris).Cells(0).Value = "TokoPedia" Then
+				DGV_MPCheckingOrder.Rows(Baris).DefaultCellStyle.BackColor = Color.LightBlue
+			Else
+				DGV_MPCheckingOrder.Rows(Baris).DefaultCellStyle.BackColor = Color.Pink
+
+			End If
+		Next
+		TextBoxScanIsbn.Focus()
+	End Sub
 End Class

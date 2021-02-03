@@ -44,3 +44,5 @@ E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.F
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormHome.resources
 D:\VisualBasic\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormDashboard.resources
 D:\VisualBasic\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormHome.resources
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormAdmin.resources
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormAutoComplete.resources

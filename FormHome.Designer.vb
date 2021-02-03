@@ -33,9 +33,9 @@ Partial Class FormHome
 		Me.BtHome = New System.Windows.Forms.Button()
 		Me.PnHeaderButton = New System.Windows.Forms.Panel()
 		Me.PnHeader = New System.Windows.Forms.Panel()
-		Me.PnDisplay = New System.Windows.Forms.Panel()
-		Me.Label1 = New System.Windows.Forms.Label()
 		Me.Label2 = New System.Windows.Forms.Label()
+		Me.Label1 = New System.Windows.Forms.Label()
+		Me.PnDisplay = New System.Windows.Forms.Panel()
 		Me.PnMenu.SuspendLayout()
 		CType(Me.PbPeriplus, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.PnbtAdmin.SuspendLayout()
@@ -177,13 +177,17 @@ Partial Class FormHome
 		Me.PnHeader.Size = New System.Drawing.Size(862, 123)
 		Me.PnHeader.TabIndex = 2
 		'
-		'PnDisplay
+		'Label2
 		'
-		Me.PnDisplay.BackColor = System.Drawing.Color.WhiteSmoke
-		Me.PnDisplay.Location = New System.Drawing.Point(147, 149)
-		Me.PnDisplay.Name = "PnDisplay"
-		Me.PnDisplay.Size = New System.Drawing.Size(844, 519)
-		Me.PnDisplay.TabIndex = 3
+		Me.Label2.AutoSize = True
+		Me.Label2.BackColor = System.Drawing.Color.Transparent
+		Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label2.ForeColor = System.Drawing.Color.AliceBlue
+		Me.Label2.Location = New System.Drawing.Point(462, 49)
+		Me.Label2.Name = "Label2"
+		Me.Label2.Size = New System.Drawing.Size(179, 72)
+		Me.Label2.TabIndex = 1
+		Me.Label2.Text = "PT. Periplus" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Jl. Rawa Gelam IV No.9" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Kawasan Industri Pulogadung" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Jakarta Timur"
 		'
 		'Label1
 		'
@@ -198,17 +202,13 @@ Partial Class FormHome
 		Me.Label1.TabIndex = 0
 		Me.Label1.Text = "Periplus Marketplace"
 		'
-		'Label2
+		'PnDisplay
 		'
-		Me.Label2.AutoSize = True
-		Me.Label2.BackColor = System.Drawing.Color.Transparent
-		Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label2.ForeColor = System.Drawing.Color.AliceBlue
-		Me.Label2.Location = New System.Drawing.Point(462, 49)
-		Me.Label2.Name = "Label2"
-		Me.Label2.Size = New System.Drawing.Size(179, 72)
-		Me.Label2.TabIndex = 1
-		Me.Label2.Text = "PT. Periplus" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Jl. Rawa Gelam IV No.9" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Kawasan Industri Pulogadung" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Jakarta Timur"
+		Me.PnDisplay.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.PnDisplay.Location = New System.Drawing.Point(147, 149)
+		Me.PnDisplay.Name = "PnDisplay"
+		Me.PnDisplay.Size = New System.Drawing.Size(844, 519)
+		Me.PnDisplay.TabIndex = 3
 		'
 		'FormHome
 		'

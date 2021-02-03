@@ -94,7 +94,7 @@ Partial Class FormDashboard
 		'
 		'PnSalesToday
 		'
-		Me.PnSalesToday.BackColor = System.Drawing.Color.Green
+		Me.PnSalesToday.BackColor = System.Drawing.Color.PowderBlue
 		Me.PnSalesToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.PnSalesToday.Controls.Add(Me.LbNominalSales)
 		Me.PnSalesToday.Controls.Add(Me.LbSales)
@@ -125,7 +125,7 @@ Partial Class FormDashboard
 		'
 		'PnProcessToday
 		'
-		Me.PnProcessToday.BackColor = System.Drawing.Color.Blue
+		Me.PnProcessToday.BackColor = System.Drawing.Color.LightSkyBlue
 		Me.PnProcessToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.PnProcessToday.Controls.Add(Me.LbJmlDiproses)
 		Me.PnProcessToday.Controls.Add(Me.LbDiproses)
@@ -156,7 +156,7 @@ Partial Class FormDashboard
 		'
 		'PnLastSales
 		'
-		Me.PnLastSales.BackColor = System.Drawing.Color.Yellow
+		Me.PnLastSales.BackColor = System.Drawing.Color.MediumBlue
 		Me.PnLastSales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.PnLastSales.Controls.Add(Me.LbNominalLastSales)
 		Me.PnLastSales.Controls.Add(Me.LbTglLastSales)
@@ -198,7 +198,7 @@ Partial Class FormDashboard
 		'
 		'PnOrderToday
 		'
-		Me.PnOrderToday.BackColor = System.Drawing.Color.Red
+		Me.PnOrderToday.BackColor = System.Drawing.Color.RoyalBlue
 		Me.PnOrderToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.PnOrderToday.Controls.Add(Me.LbPesanan)
 		Me.PnOrderToday.Controls.Add(Me.LbOrderToday)
@@ -251,12 +251,14 @@ Partial Class FormDashboard
 		Me.DGVDone.AllowUserToAddRows = False
 		Me.DGVDone.AllowUserToDeleteRows = False
 		Me.DGVDone.AutoGenerateColumns = False
+		Me.DGVDone.BackgroundColor = System.Drawing.Color.Aquamarine
 		Me.DGVDone.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.DGVDone.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
-		Me.DGVDone.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+		Me.DGVDone.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
 		Me.DGVDone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
 		Me.DGVDone.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MPDataGridViewTextBoxColumn, Me.InvoiceOrderIDDataGridViewTextBoxColumn, Me.ResiDataGridViewTextBoxColumn, Me.JudulDataGridViewTextBoxColumn, Me.TanggalSeleseiDataGridViewTextBoxColumn})
 		Me.DGVDone.DataSource = Me.MPCheckingOrderBindingSource
+		Me.DGVDone.GridColor = System.Drawing.SystemColors.ActiveCaptionText
 		Me.DGVDone.Location = New System.Drawing.Point(9, 19)
 		Me.DGVDone.Name = "DGVDone"
 		Me.DGVDone.ReadOnly = True
@@ -321,7 +323,7 @@ Partial Class FormDashboard
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.BackColor = System.Drawing.Color.LightSkyBlue
+		Me.BackColor = System.Drawing.Color.LightBlue
 		Me.ClientSize = New System.Drawing.Size(844, 519)
 		Me.Controls.Add(Me.GroupBox1)
 		Me.Controls.Add(Me.MonthCalendar)

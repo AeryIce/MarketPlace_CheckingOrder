@@ -46,3 +46,4 @@ D:\VisualBasic\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.For
 D:\VisualBasic\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormHome.resources
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormAdmin.resources
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormAutoComplete.resources
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormImportACCPAC.resources

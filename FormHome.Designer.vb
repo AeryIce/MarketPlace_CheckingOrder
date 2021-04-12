@@ -36,6 +36,9 @@ Partial Class FormHome
 		Me.Label2 = New System.Windows.Forms.Label()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.PnDisplay = New System.Windows.Forms.Panel()
+		Me.BtMinimizeWindows = New System.Windows.Forms.Button()
+		Me.BtMaximizeWindows = New System.Windows.Forms.Button()
+		Me.BtCloseWindows = New System.Windows.Forms.Button()
 		Me.PnMenu.SuspendLayout()
 		CType(Me.PbPeriplus, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.PnbtAdmin.SuspendLayout()
@@ -161,7 +164,6 @@ Partial Class FormHome
 		'PnHeaderButton
 		'
 		Me.PnHeaderButton.BackColor = System.Drawing.Color.WhiteSmoke
-		Me.PnHeaderButton.Dock = System.Windows.Forms.DockStyle.Top
 		Me.PnHeaderButton.Location = New System.Drawing.Point(138, 0)
 		Me.PnHeaderButton.Name = "PnHeaderButton"
 		Me.PnHeaderButton.Size = New System.Drawing.Size(862, 20)
@@ -210,6 +212,45 @@ Partial Class FormHome
 		Me.PnDisplay.Size = New System.Drawing.Size(844, 519)
 		Me.PnDisplay.TabIndex = 3
 		'
+		'BtMinimizeWindows
+		'
+		Me.BtMinimizeWindows.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.BtMinimizeWindows.BackgroundImage = Global.MarketPlace_CheckingOrder.My.Resources.Resources.minimize_window_24px
+		Me.BtMinimizeWindows.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+		Me.BtMinimizeWindows.FlatAppearance.BorderSize = 0
+		Me.BtMinimizeWindows.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.BtMinimizeWindows.Location = New System.Drawing.Point(931, -2)
+		Me.BtMinimizeWindows.Name = "BtMinimizeWindows"
+		Me.BtMinimizeWindows.Size = New System.Drawing.Size(23, 20)
+		Me.BtMinimizeWindows.TabIndex = 2
+		Me.BtMinimizeWindows.UseVisualStyleBackColor = False
+		'
+		'BtMaximizeWindows
+		'
+		Me.BtMaximizeWindows.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.BtMaximizeWindows.BackgroundImage = Global.MarketPlace_CheckingOrder.My.Resources.Resources.maximize_window_24px
+		Me.BtMaximizeWindows.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+		Me.BtMaximizeWindows.FlatAppearance.BorderSize = 0
+		Me.BtMaximizeWindows.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.BtMaximizeWindows.Location = New System.Drawing.Point(953, -2)
+		Me.BtMaximizeWindows.Name = "BtMaximizeWindows"
+		Me.BtMaximizeWindows.Size = New System.Drawing.Size(25, 20)
+		Me.BtMaximizeWindows.TabIndex = 1
+		Me.BtMaximizeWindows.UseVisualStyleBackColor = False
+		'
+		'BtCloseWindows
+		'
+		Me.BtCloseWindows.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.BtCloseWindows.BackgroundImage = Global.MarketPlace_CheckingOrder.My.Resources.Resources.close_window_24px1
+		Me.BtCloseWindows.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+		Me.BtCloseWindows.FlatAppearance.BorderSize = 0
+		Me.BtCloseWindows.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.BtCloseWindows.Location = New System.Drawing.Point(975, -2)
+		Me.BtCloseWindows.Name = "BtCloseWindows"
+		Me.BtCloseWindows.Size = New System.Drawing.Size(25, 20)
+		Me.BtCloseWindows.TabIndex = 0
+		Me.BtCloseWindows.UseVisualStyleBackColor = False
+		'
 		'FormHome
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -217,10 +258,13 @@ Partial Class FormHome
 		Me.BackColor = System.Drawing.Color.LightBlue
 		Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
 		Me.ClientSize = New System.Drawing.Size(1000, 680)
+		Me.Controls.Add(Me.BtMinimizeWindows)
 		Me.Controls.Add(Me.PnDisplay)
+		Me.Controls.Add(Me.BtMaximizeWindows)
 		Me.Controls.Add(Me.PnHeader)
-		Me.Controls.Add(Me.PnHeaderButton)
 		Me.Controls.Add(Me.PnMenu)
+		Me.Controls.Add(Me.BtCloseWindows)
+		Me.Controls.Add(Me.PnHeaderButton)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Name = "FormHome"
 		Me.Opacity = 0.95R
@@ -251,4 +295,7 @@ Partial Class FormHome
 	Friend WithEvents PnDisplay As Panel
 	Friend WithEvents Label2 As Label
 	Friend WithEvents Label1 As Label
+	Friend WithEvents BtCloseWindows As Button
+	Friend WithEvents BtMaximizeWindows As Button
+	Friend WithEvents BtMinimizeWindows As Button
 End Class

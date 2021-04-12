@@ -22,358 +22,456 @@ Partial Class FormDashboard
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Me.components = New System.ComponentModel.Container()
-		Me.GBPerformance = New System.Windows.Forms.GroupBox()
-		Me.TLPSUmmary = New System.Windows.Forms.TableLayoutPanel()
-		Me.PnSalesToday = New System.Windows.Forms.Panel()
-		Me.LbNominalSales = New System.Windows.Forms.Label()
-		Me.LbSales = New System.Windows.Forms.Label()
-		Me.PnProcessToday = New System.Windows.Forms.Panel()
-		Me.LbJmlDiproses = New System.Windows.Forms.Label()
-		Me.LbDiproses = New System.Windows.Forms.Label()
-		Me.PnLastSales = New System.Windows.Forms.Panel()
-		Me.LbNominalLastSales = New System.Windows.Forms.Label()
-		Me.LbTglLastSales = New System.Windows.Forms.Label()
-		Me.LbLastSales = New System.Windows.Forms.Label()
-		Me.PnOrderToday = New System.Windows.Forms.Panel()
-		Me.LbPesanan = New System.Windows.Forms.Label()
-		Me.LbOrderToday = New System.Windows.Forms.Label()
-		Me.MonthCalendar = New System.Windows.Forms.MonthCalendar()
+		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Me.GBImport = New System.Windows.Forms.GroupBox()
+		Me.BtImport = New System.Windows.Forms.Button()
+		Me.BGAnalyze = New System.Windows.Forms.GroupBox()
+		Me.BtAnalyze = New System.Windows.Forms.Button()
+		Me.GBMother = New System.Windows.Forms.GroupBox()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-		Me.DGVDone = New System.Windows.Forms.DataGridView()
-		Me.MPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.InvoiceOrderIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.ResiDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.JudulDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.TanggalSeleseiDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.MPCheckingOrderBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-		Me.INVDataSet = New MarketPlace_CheckingOrder.INVDataSet()
-		Me.MP_CheckingOrderTableAdapter = New MarketPlace_CheckingOrder.INVDataSetTableAdapters.MP_CheckingOrderTableAdapter()
-		Me.GBPerformance.SuspendLayout()
-		Me.TLPSUmmary.SuspendLayout()
-		Me.PnSalesToday.SuspendLayout()
-		Me.PnProcessToday.SuspendLayout()
-		Me.PnLastSales.SuspendLayout()
-		Me.PnOrderToday.SuspendLayout()
+		Me.DGVBestDay = New System.Windows.Forms.DataGridView()
+		Me.GBBestCustomer = New System.Windows.Forms.GroupBox()
+		Me.DGVLoyalCust = New System.Windows.Forms.DataGridView()
+		Me.GBKat = New System.Windows.Forms.GroupBox()
+		Me.DGVBestKat = New System.Windows.Forms.DataGridView()
+		Me.GBAuthor = New System.Windows.Forms.GroupBox()
+		Me.DGVBestAuthor = New System.Windows.Forms.DataGridView()
+		Me.GBBestSeller = New System.Windows.Forms.GroupBox()
+		Me.DGVBestSeller = New System.Windows.Forms.DataGridView()
+		Me.GBParameter = New System.Windows.Forms.GroupBox()
+		Me.LbUntil = New System.Windows.Forms.Label()
+		Me.LbEndMonth = New System.Windows.Forms.Label()
+		Me.LbStartMonth = New System.Windows.Forms.Label()
+		Me.CBEndMonthly = New System.Windows.Forms.ComboBox()
+		Me.CBStartMonthly = New System.Windows.Forms.ComboBox()
+		Me.CBMonthly = New System.Windows.Forms.ComboBox()
+		Me.RBSpecific = New System.Windows.Forms.RadioButton()
+		Me.RBMonthly = New System.Windows.Forms.RadioButton()
+		Me.RBALL = New System.Windows.Forms.RadioButton()
+		Me.LbTest = New System.Windows.Forms.Label()
+		Me.GBImport.SuspendLayout()
+		Me.BGAnalyze.SuspendLayout()
+		Me.GBMother.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
-		CType(Me.DGVDone, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.MPCheckingOrderBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.INVDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.DGVBestDay, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.GBBestCustomer.SuspendLayout()
+		CType(Me.DGVLoyalCust, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.GBKat.SuspendLayout()
+		CType(Me.DGVBestKat, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.GBAuthor.SuspendLayout()
+		CType(Me.DGVBestAuthor, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.GBBestSeller.SuspendLayout()
+		CType(Me.DGVBestSeller, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.GBParameter.SuspendLayout()
 		Me.SuspendLayout()
 		'
-		'GBPerformance
+		'GBImport
 		'
-		Me.GBPerformance.Controls.Add(Me.TLPSUmmary)
-		Me.GBPerformance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.GBPerformance.Font = New System.Drawing.Font("Trebuchet MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.GBPerformance.Location = New System.Drawing.Point(12, 4)
-		Me.GBPerformance.Name = "GBPerformance"
-		Me.GBPerformance.Size = New System.Drawing.Size(507, 181)
-		Me.GBPerformance.TabIndex = 0
-		Me.GBPerformance.TabStop = False
-		Me.GBPerformance.Text = "Summary"
+		Me.GBImport.Controls.Add(Me.BtImport)
+		Me.GBImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.GBImport.Location = New System.Drawing.Point(12, 12)
+		Me.GBImport.Name = "GBImport"
+		Me.GBImport.Size = New System.Drawing.Size(111, 128)
+		Me.GBImport.TabIndex = 5
+		Me.GBImport.TabStop = False
+		Me.GBImport.Text = "Import Data"
 		'
-		'TLPSUmmary
+		'BtImport
 		'
-		Me.TLPSUmmary.BackColor = System.Drawing.Color.Transparent
-		Me.TLPSUmmary.ColumnCount = 4
-		Me.TLPSUmmary.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-		Me.TLPSUmmary.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-		Me.TLPSUmmary.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-		Me.TLPSUmmary.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-		Me.TLPSUmmary.Controls.Add(Me.PnSalesToday, 3, 0)
-		Me.TLPSUmmary.Controls.Add(Me.PnProcessToday, 2, 0)
-		Me.TLPSUmmary.Controls.Add(Me.PnLastSales, 0, 0)
-		Me.TLPSUmmary.Controls.Add(Me.PnOrderToday, 1, 0)
-		Me.TLPSUmmary.Location = New System.Drawing.Point(6, 19)
-		Me.TLPSUmmary.Name = "TLPSUmmary"
-		Me.TLPSUmmary.RowCount = 1
-		Me.TLPSUmmary.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TLPSUmmary.Size = New System.Drawing.Size(490, 151)
-		Me.TLPSUmmary.TabIndex = 0
+		Me.BtImport.BackgroundImage = Global.MarketPlace_CheckingOrder.My.Resources.Resources.database_import_64px
+		Me.BtImport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.BtImport.FlatAppearance.BorderSize = 0
+		Me.BtImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.BtImport.Location = New System.Drawing.Point(17, 28)
+		Me.BtImport.Name = "BtImport"
+		Me.BtImport.Size = New System.Drawing.Size(83, 77)
+		Me.BtImport.TabIndex = 3
+		Me.BtImport.UseVisualStyleBackColor = True
 		'
-		'PnSalesToday
+		'BGAnalyze
 		'
-		Me.PnSalesToday.BackColor = System.Drawing.Color.PowderBlue
-		Me.PnSalesToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.PnSalesToday.Controls.Add(Me.LbNominalSales)
-		Me.PnSalesToday.Controls.Add(Me.LbSales)
-		Me.PnSalesToday.Location = New System.Drawing.Point(369, 3)
-		Me.PnSalesToday.Name = "PnSalesToday"
-		Me.PnSalesToday.Size = New System.Drawing.Size(116, 145)
-		Me.PnSalesToday.TabIndex = 3
+		Me.BGAnalyze.Controls.Add(Me.BtAnalyze)
+		Me.BGAnalyze.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.BGAnalyze.Location = New System.Drawing.Point(575, 12)
+		Me.BGAnalyze.Name = "BGAnalyze"
+		Me.BGAnalyze.Size = New System.Drawing.Size(102, 128)
+		Me.BGAnalyze.TabIndex = 6
+		Me.BGAnalyze.TabStop = False
+		Me.BGAnalyze.Text = "Analyze"
 		'
-		'LbNominalSales
+		'BtAnalyze
 		'
-		Me.LbNominalSales.AutoSize = True
-		Me.LbNominalSales.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbNominalSales.Location = New System.Drawing.Point(3, 84)
-		Me.LbNominalSales.Name = "LbNominalSales"
-		Me.LbNominalSales.Size = New System.Drawing.Size(124, 19)
-		Me.LbNominalSales.TabIndex = 8
-		Me.LbNominalSales.Text = "Nominal Sales"
+		Me.BtAnalyze.BackgroundImage = Global.MarketPlace_CheckingOrder.My.Resources.Resources.learning_50px
+		Me.BtAnalyze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.BtAnalyze.FlatAppearance.BorderSize = 0
+		Me.BtAnalyze.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.BtAnalyze.Location = New System.Drawing.Point(12, 29)
+		Me.BtAnalyze.Name = "BtAnalyze"
+		Me.BtAnalyze.Size = New System.Drawing.Size(83, 77)
+		Me.BtAnalyze.TabIndex = 4
+		Me.BtAnalyze.UseVisualStyleBackColor = True
 		'
-		'LbSales
+		'GBMother
 		'
-		Me.LbSales.AutoSize = True
-		Me.LbSales.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbSales.Location = New System.Drawing.Point(17, 8)
-		Me.LbSales.Name = "LbSales"
-		Me.LbSales.Size = New System.Drawing.Size(52, 19)
-		Me.LbSales.TabIndex = 7
-		Me.LbSales.Text = "Sales"
-		'
-		'PnProcessToday
-		'
-		Me.PnProcessToday.BackColor = System.Drawing.Color.LightSkyBlue
-		Me.PnProcessToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.PnProcessToday.Controls.Add(Me.LbJmlDiproses)
-		Me.PnProcessToday.Controls.Add(Me.LbDiproses)
-		Me.PnProcessToday.Location = New System.Drawing.Point(247, 3)
-		Me.PnProcessToday.Name = "PnProcessToday"
-		Me.PnProcessToday.Size = New System.Drawing.Size(116, 145)
-		Me.PnProcessToday.TabIndex = 2
-		'
-		'LbJmlDiproses
-		'
-		Me.LbJmlDiproses.AutoSize = True
-		Me.LbJmlDiproses.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbJmlDiproses.Location = New System.Drawing.Point(5, 84)
-		Me.LbJmlDiproses.Name = "LbJmlDiproses"
-		Me.LbJmlDiproses.Size = New System.Drawing.Size(114, 19)
-		Me.LbJmlDiproses.TabIndex = 6
-		Me.LbJmlDiproses.Text = "Sdh Diproses"
-		'
-		'LbDiproses
-		'
-		Me.LbDiproses.AutoSize = True
-		Me.LbDiproses.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbDiproses.Location = New System.Drawing.Point(14, 8)
-		Me.LbDiproses.Name = "LbDiproses"
-		Me.LbDiproses.Size = New System.Drawing.Size(79, 19)
-		Me.LbDiproses.TabIndex = 5
-		Me.LbDiproses.Text = "Diproses"
-		'
-		'PnLastSales
-		'
-		Me.PnLastSales.BackColor = System.Drawing.Color.MediumBlue
-		Me.PnLastSales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.PnLastSales.Controls.Add(Me.LbNominalLastSales)
-		Me.PnLastSales.Controls.Add(Me.LbTglLastSales)
-		Me.PnLastSales.Controls.Add(Me.LbLastSales)
-		Me.PnLastSales.Location = New System.Drawing.Point(3, 3)
-		Me.PnLastSales.Name = "PnLastSales"
-		Me.PnLastSales.Size = New System.Drawing.Size(116, 145)
-		Me.PnLastSales.TabIndex = 0
-		'
-		'LbNominalLastSales
-		'
-		Me.LbNominalLastSales.AutoSize = True
-		Me.LbNominalLastSales.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbNominalLastSales.Location = New System.Drawing.Point(-2, 80)
-		Me.LbNominalLastSales.Name = "LbNominalLastSales"
-		Me.LbNominalLastSales.Size = New System.Drawing.Size(97, 25)
-		Me.LbNominalLastSales.TabIndex = 3
-		Me.LbNominalLastSales.Text = "Nominal"
-		'
-		'LbTglLastSales
-		'
-		Me.LbTglLastSales.AutoSize = True
-		Me.LbTglLastSales.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbTglLastSales.Location = New System.Drawing.Point(15, 26)
-		Me.LbTglLastSales.Name = "LbTglLastSales"
-		Me.LbTglLastSales.Size = New System.Drawing.Size(78, 18)
-		Me.LbTglLastSales.TabIndex = 3
-		Me.LbTglLastSales.Text = "tgl kemaren"
-		'
-		'LbLastSales
-		'
-		Me.LbLastSales.AutoSize = True
-		Me.LbLastSales.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbLastSales.Location = New System.Drawing.Point(11, 8)
-		Me.LbLastSales.Name = "LbLastSales"
-		Me.LbLastSales.Size = New System.Drawing.Size(91, 19)
-		Me.LbLastSales.TabIndex = 3
-		Me.LbLastSales.Text = "Last Sales"
-		'
-		'PnOrderToday
-		'
-		Me.PnOrderToday.BackColor = System.Drawing.Color.RoyalBlue
-		Me.PnOrderToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.PnOrderToday.Controls.Add(Me.LbPesanan)
-		Me.PnOrderToday.Controls.Add(Me.LbOrderToday)
-		Me.PnOrderToday.Location = New System.Drawing.Point(125, 3)
-		Me.PnOrderToday.Name = "PnOrderToday"
-		Me.PnOrderToday.Size = New System.Drawing.Size(116, 145)
-		Me.PnOrderToday.TabIndex = 1
-		'
-		'LbPesanan
-		'
-		Me.LbPesanan.AutoSize = True
-		Me.LbPesanan.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbPesanan.Location = New System.Drawing.Point(-6, 80)
-		Me.LbPesanan.Name = "LbPesanan"
-		Me.LbPesanan.Size = New System.Drawing.Size(147, 25)
-		Me.LbPesanan.TabIndex = 4
-		Me.LbPesanan.Text = "Jml Pesanan"
-		'
-		'LbOrderToday
-		'
-		Me.LbOrderToday.AutoSize = True
-		Me.LbOrderToday.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LbOrderToday.Location = New System.Drawing.Point(10, 8)
-		Me.LbOrderToday.Name = "LbOrderToday"
-		Me.LbOrderToday.Size = New System.Drawing.Size(78, 19)
-		Me.LbOrderToday.TabIndex = 4
-		Me.LbOrderToday.Text = "Pesanan"
-		'
-		'MonthCalendar
-		'
-		Me.MonthCalendar.BackColor = System.Drawing.Color.LightSeaGreen
-		Me.MonthCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Monday
-		Me.MonthCalendar.Location = New System.Drawing.Point(547, 12)
-		Me.MonthCalendar.Name = "MonthCalendar"
-		Me.MonthCalendar.TabIndex = 1
+		Me.GBMother.Controls.Add(Me.GroupBox1)
+		Me.GBMother.Controls.Add(Me.GBBestCustomer)
+		Me.GBMother.Controls.Add(Me.GBKat)
+		Me.GBMother.Controls.Add(Me.GBAuthor)
+		Me.GBMother.Controls.Add(Me.GBBestSeller)
+		Me.GBMother.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.GBMother.Location = New System.Drawing.Point(12, 146)
+		Me.GBMother.Name = "GBMother"
+		Me.GBMother.Size = New System.Drawing.Size(665, 481)
+		Me.GBMother.TabIndex = 7
+		Me.GBMother.TabStop = False
 		'
 		'GroupBox1
 		'
-		Me.GroupBox1.Controls.Add(Me.DGVDone)
-		Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.GroupBox1.Location = New System.Drawing.Point(12, 191)
+		Me.GroupBox1.Controls.Add(Me.DGVBestDay)
+		Me.GroupBox1.Location = New System.Drawing.Point(330, 328)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(689, 289)
-		Me.GroupBox1.TabIndex = 2
+		Me.GroupBox1.Size = New System.Drawing.Size(314, 148)
+		Me.GroupBox1.TabIndex = 3
 		Me.GroupBox1.TabStop = False
-		Me.GroupBox1.Text = "GBDataGrid"
+		Me.GroupBox1.Text = "BestDay"
 		'
-		'DGVDone
+		'DGVBestDay
 		'
-		Me.DGVDone.AllowUserToAddRows = False
-		Me.DGVDone.AllowUserToDeleteRows = False
-		Me.DGVDone.AutoGenerateColumns = False
-		Me.DGVDone.BackgroundColor = System.Drawing.Color.Aquamarine
-		Me.DGVDone.BorderStyle = System.Windows.Forms.BorderStyle.None
-		Me.DGVDone.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
-		Me.DGVDone.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-		Me.DGVDone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DGVDone.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MPDataGridViewTextBoxColumn, Me.InvoiceOrderIDDataGridViewTextBoxColumn, Me.ResiDataGridViewTextBoxColumn, Me.JudulDataGridViewTextBoxColumn, Me.TanggalSeleseiDataGridViewTextBoxColumn})
-		Me.DGVDone.DataSource = Me.MPCheckingOrderBindingSource
-		Me.DGVDone.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-		Me.DGVDone.Location = New System.Drawing.Point(9, 19)
-		Me.DGVDone.Name = "DGVDone"
-		Me.DGVDone.ReadOnly = True
-		Me.DGVDone.RowHeadersVisible = False
-		Me.DGVDone.Size = New System.Drawing.Size(660, 250)
-		Me.DGVDone.TabIndex = 0
+		Me.DGVBestDay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+		DataGridViewCellStyle1.Font = New System.Drawing.Font("Lucida Console", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+		DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.DGVBestDay.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+		Me.DGVBestDay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		Me.DGVBestDay.Location = New System.Drawing.Point(6, 19)
+		Me.DGVBestDay.Name = "DGVBestDay"
+		Me.DGVBestDay.RowHeadersVisible = False
+		Me.DGVBestDay.Size = New System.Drawing.Size(302, 123)
+		Me.DGVBestDay.TabIndex = 0
 		'
-		'MPDataGridViewTextBoxColumn
+		'GBBestCustomer
 		'
-		Me.MPDataGridViewTextBoxColumn.DataPropertyName = "MP"
-		Me.MPDataGridViewTextBoxColumn.HeaderText = "MP"
-		Me.MPDataGridViewTextBoxColumn.Name = "MPDataGridViewTextBoxColumn"
-		Me.MPDataGridViewTextBoxColumn.ReadOnly = True
-		Me.MPDataGridViewTextBoxColumn.Width = 75
+		Me.GBBestCustomer.Controls.Add(Me.DGVLoyalCust)
+		Me.GBBestCustomer.Location = New System.Drawing.Point(12, 328)
+		Me.GBBestCustomer.Name = "GBBestCustomer"
+		Me.GBBestCustomer.Size = New System.Drawing.Size(306, 148)
+		Me.GBBestCustomer.TabIndex = 2
+		Me.GBBestCustomer.TabStop = False
+		Me.GBBestCustomer.Text = "Best Customers"
 		'
-		'InvoiceOrderIDDataGridViewTextBoxColumn
+		'DGVLoyalCust
 		'
-		Me.InvoiceOrderIDDataGridViewTextBoxColumn.DataPropertyName = "Invoice_OrderID"
-		Me.InvoiceOrderIDDataGridViewTextBoxColumn.HeaderText = "Invoice_OrderID"
-		Me.InvoiceOrderIDDataGridViewTextBoxColumn.Name = "InvoiceOrderIDDataGridViewTextBoxColumn"
-		Me.InvoiceOrderIDDataGridViewTextBoxColumn.ReadOnly = True
-		Me.InvoiceOrderIDDataGridViewTextBoxColumn.Width = 175
+		Me.DGVLoyalCust.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+		DataGridViewCellStyle2.Font = New System.Drawing.Font("Lucida Console", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+		DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.DGVLoyalCust.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+		Me.DGVLoyalCust.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		Me.DGVLoyalCust.Location = New System.Drawing.Point(6, 19)
+		Me.DGVLoyalCust.Name = "DGVLoyalCust"
+		Me.DGVLoyalCust.RowHeadersVisible = False
+		Me.DGVLoyalCust.Size = New System.Drawing.Size(278, 123)
+		Me.DGVLoyalCust.TabIndex = 0
 		'
-		'ResiDataGridViewTextBoxColumn
+		'GBKat
 		'
-		Me.ResiDataGridViewTextBoxColumn.DataPropertyName = "Resi"
-		Me.ResiDataGridViewTextBoxColumn.HeaderText = "Resi"
-		Me.ResiDataGridViewTextBoxColumn.Name = "ResiDataGridViewTextBoxColumn"
-		Me.ResiDataGridViewTextBoxColumn.ReadOnly = True
+		Me.GBKat.Controls.Add(Me.DGVBestKat)
+		Me.GBKat.Location = New System.Drawing.Point(324, 174)
+		Me.GBKat.Name = "GBKat"
+		Me.GBKat.Size = New System.Drawing.Size(320, 148)
+		Me.GBKat.TabIndex = 2
+		Me.GBKat.TabStop = False
+		Me.GBKat.Text = "Category Favorites"
 		'
-		'JudulDataGridViewTextBoxColumn
+		'DGVBestKat
 		'
-		Me.JudulDataGridViewTextBoxColumn.DataPropertyName = "Judul"
-		Me.JudulDataGridViewTextBoxColumn.HeaderText = "Judul"
-		Me.JudulDataGridViewTextBoxColumn.Name = "JudulDataGridViewTextBoxColumn"
-		Me.JudulDataGridViewTextBoxColumn.ReadOnly = True
-		Me.JudulDataGridViewTextBoxColumn.Width = 175
+		Me.DGVBestKat.AllowUserToAddRows = False
+		Me.DGVBestKat.AllowUserToDeleteRows = False
+		Me.DGVBestKat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+		DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+		DataGridViewCellStyle3.Font = New System.Drawing.Font("Lucida Console", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+		DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.DGVBestKat.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+		Me.DGVBestKat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		Me.DGVBestKat.Location = New System.Drawing.Point(6, 19)
+		Me.DGVBestKat.Name = "DGVBestKat"
+		Me.DGVBestKat.ReadOnly = True
+		Me.DGVBestKat.RowHeadersVisible = False
+		Me.DGVBestKat.Size = New System.Drawing.Size(308, 123)
+		Me.DGVBestKat.TabIndex = 0
 		'
-		'TanggalSeleseiDataGridViewTextBoxColumn
+		'GBAuthor
 		'
-		Me.TanggalSeleseiDataGridViewTextBoxColumn.DataPropertyName = "Tanggal_Selesei"
-		Me.TanggalSeleseiDataGridViewTextBoxColumn.HeaderText = "Tanggal_Selesei"
-		Me.TanggalSeleseiDataGridViewTextBoxColumn.Name = "TanggalSeleseiDataGridViewTextBoxColumn"
-		Me.TanggalSeleseiDataGridViewTextBoxColumn.ReadOnly = True
-		Me.TanggalSeleseiDataGridViewTextBoxColumn.Width = 115
+		Me.GBAuthor.Controls.Add(Me.DGVBestAuthor)
+		Me.GBAuthor.Location = New System.Drawing.Point(12, 174)
+		Me.GBAuthor.Name = "GBAuthor"
+		Me.GBAuthor.Size = New System.Drawing.Size(306, 148)
+		Me.GBAuthor.TabIndex = 1
+		Me.GBAuthor.TabStop = False
+		Me.GBAuthor.Text = "Author Favorites"
 		'
-		'MPCheckingOrderBindingSource
+		'DGVBestAuthor
 		'
-		Me.MPCheckingOrderBindingSource.DataMember = "MP_CheckingOrder"
-		Me.MPCheckingOrderBindingSource.DataSource = Me.INVDataSet
+		Me.DGVBestAuthor.AllowUserToAddRows = False
+		Me.DGVBestAuthor.AllowUserToDeleteRows = False
+		Me.DGVBestAuthor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+		Me.DGVBestAuthor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+		DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+		DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+		DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.DGVBestAuthor.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+		Me.DGVBestAuthor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		Me.DGVBestAuthor.Location = New System.Drawing.Point(6, 19)
+		Me.DGVBestAuthor.Name = "DGVBestAuthor"
+		Me.DGVBestAuthor.ReadOnly = True
+		Me.DGVBestAuthor.RowHeadersVisible = False
+		Me.DGVBestAuthor.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+		Me.DGVBestAuthor.Size = New System.Drawing.Size(278, 123)
+		Me.DGVBestAuthor.TabIndex = 0
 		'
-		'INVDataSet
+		'GBBestSeller
 		'
-		Me.INVDataSet.DataSetName = "INVDataSet"
-		Me.INVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+		Me.GBBestSeller.Controls.Add(Me.DGVBestSeller)
+		Me.GBBestSeller.Location = New System.Drawing.Point(12, 19)
+		Me.GBBestSeller.Name = "GBBestSeller"
+		Me.GBBestSeller.Size = New System.Drawing.Size(632, 149)
+		Me.GBBestSeller.TabIndex = 0
+		Me.GBBestSeller.TabStop = False
+		Me.GBBestSeller.Text = "TOP25 BestSeller"
 		'
-		'MP_CheckingOrderTableAdapter
+		'DGVBestSeller
 		'
-		Me.MP_CheckingOrderTableAdapter.ClearBeforeFill = True
+		Me.DGVBestSeller.AllowUserToAddRows = False
+		Me.DGVBestSeller.AllowUserToDeleteRows = False
+		Me.DGVBestSeller.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+		Me.DGVBestSeller.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+		DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+		DataGridViewCellStyle5.Font = New System.Drawing.Font("Courier New", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+		DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.DGVBestSeller.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+		Me.DGVBestSeller.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle6.BackColor = System.Drawing.Color.LightCyan
+		DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+		DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+		Me.DGVBestSeller.DefaultCellStyle = DataGridViewCellStyle6
+		Me.DGVBestSeller.GridColor = System.Drawing.Color.Black
+		Me.DGVBestSeller.Location = New System.Drawing.Point(6, 19)
+		Me.DGVBestSeller.Name = "DGVBestSeller"
+		DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+		DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+		DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.DGVBestSeller.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
+		Me.DGVBestSeller.RowHeadersVisible = False
+		Me.DGVBestSeller.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+		Me.DGVBestSeller.Size = New System.Drawing.Size(620, 116)
+		Me.DGVBestSeller.TabIndex = 0
+		'
+		'GBParameter
+		'
+		Me.GBParameter.Controls.Add(Me.LbTest)
+		Me.GBParameter.Controls.Add(Me.LbUntil)
+		Me.GBParameter.Controls.Add(Me.LbEndMonth)
+		Me.GBParameter.Controls.Add(Me.LbStartMonth)
+		Me.GBParameter.Controls.Add(Me.CBEndMonthly)
+		Me.GBParameter.Controls.Add(Me.CBStartMonthly)
+		Me.GBParameter.Controls.Add(Me.CBMonthly)
+		Me.GBParameter.Controls.Add(Me.RBSpecific)
+		Me.GBParameter.Controls.Add(Me.RBMonthly)
+		Me.GBParameter.Controls.Add(Me.RBALL)
+		Me.GBParameter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.GBParameter.Location = New System.Drawing.Point(129, 20)
+		Me.GBParameter.Name = "GBParameter"
+		Me.GBParameter.Size = New System.Drawing.Size(440, 120)
+		Me.GBParameter.TabIndex = 8
+		Me.GBParameter.TabStop = False
+		Me.GBParameter.Text = "Parameter"
+		'
+		'LbUntil
+		'
+		Me.LbUntil.AutoSize = True
+		Me.LbUntil.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbUntil.Location = New System.Drawing.Point(247, 70)
+		Me.LbUntil.Name = "LbUntil"
+		Me.LbUntil.Size = New System.Drawing.Size(21, 24)
+		Me.LbUntil.TabIndex = 8
+		Me.LbUntil.Text = "x"
+		'
+		'LbEndMonth
+		'
+		Me.LbEndMonth.AutoSize = True
+		Me.LbEndMonth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbEndMonth.Location = New System.Drawing.Point(338, 93)
+		Me.LbEndMonth.Name = "LbEndMonth"
+		Me.LbEndMonth.Size = New System.Drawing.Size(16, 18)
+		Me.LbEndMonth.TabIndex = 7
+		Me.LbEndMonth.Text = "x"
+		'
+		'LbStartMonth
+		'
+		Me.LbStartMonth.AutoSize = True
+		Me.LbStartMonth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LbStartMonth.Location = New System.Drawing.Point(144, 93)
+		Me.LbStartMonth.Name = "LbStartMonth"
+		Me.LbStartMonth.Size = New System.Drawing.Size(16, 18)
+		Me.LbStartMonth.TabIndex = 6
+		Me.LbStartMonth.Text = "x"
+		'
+		'CBEndMonthly
+		'
+		Me.CBEndMonthly.FormattingEnabled = True
+		Me.CBEndMonthly.Location = New System.Drawing.Point(287, 67)
+		Me.CBEndMonthly.Name = "CBEndMonthly"
+		Me.CBEndMonthly.Size = New System.Drawing.Size(121, 21)
+		Me.CBEndMonthly.TabIndex = 5
+		'
+		'CBStartMonthly
+		'
+		Me.CBStartMonthly.FormattingEnabled = True
+		Me.CBStartMonthly.Location = New System.Drawing.Point(97, 67)
+		Me.CBStartMonthly.Name = "CBStartMonthly"
+		Me.CBStartMonthly.Size = New System.Drawing.Size(121, 21)
+		Me.CBStartMonthly.TabIndex = 4
+		'
+		'CBMonthly
+		'
+		Me.CBMonthly.FormattingEnabled = True
+		Me.CBMonthly.Location = New System.Drawing.Point(97, 41)
+		Me.CBMonthly.Name = "CBMonthly"
+		Me.CBMonthly.Size = New System.Drawing.Size(121, 21)
+		Me.CBMonthly.TabIndex = 3
+		'
+		'RBSpecific
+		'
+		Me.RBSpecific.AutoSize = True
+		Me.RBSpecific.Location = New System.Drawing.Point(15, 65)
+		Me.RBSpecific.Name = "RBSpecific"
+		Me.RBSpecific.Size = New System.Drawing.Size(63, 17)
+		Me.RBSpecific.TabIndex = 2
+		Me.RBSpecific.TabStop = True
+		Me.RBSpecific.Text = "Specific"
+		Me.RBSpecific.UseVisualStyleBackColor = True
+		'
+		'RBMonthly
+		'
+		Me.RBMonthly.AutoSize = True
+		Me.RBMonthly.Location = New System.Drawing.Point(15, 42)
+		Me.RBMonthly.Name = "RBMonthly"
+		Me.RBMonthly.Size = New System.Drawing.Size(62, 17)
+		Me.RBMonthly.TabIndex = 1
+		Me.RBMonthly.TabStop = True
+		Me.RBMonthly.Text = "Monthly"
+		Me.RBMonthly.UseVisualStyleBackColor = True
+		'
+		'RBALL
+		'
+		Me.RBALL.AutoSize = True
+		Me.RBALL.Location = New System.Drawing.Point(15, 19)
+		Me.RBALL.Name = "RBALL"
+		Me.RBALL.Size = New System.Drawing.Size(36, 17)
+		Me.RBALL.TabIndex = 0
+		Me.RBALL.TabStop = True
+		Me.RBALL.Text = "All"
+		Me.RBALL.UseVisualStyleBackColor = True
+		'
+		'LbTest
+		'
+		Me.LbTest.AutoSize = True
+		Me.LbTest.Location = New System.Drawing.Point(284, 41)
+		Me.LbTest.Name = "LbTest"
+		Me.LbTest.Size = New System.Drawing.Size(28, 13)
+		Me.LbTest.TabIndex = 9
+		Me.LbTest.Text = "Test"
 		'
 		'FormDashboard
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.LightBlue
-		Me.ClientSize = New System.Drawing.Size(844, 519)
-		Me.Controls.Add(Me.GroupBox1)
-		Me.Controls.Add(Me.MonthCalendar)
-		Me.Controls.Add(Me.GBPerformance)
+		Me.ClientSize = New System.Drawing.Size(696, 639)
+		Me.Controls.Add(Me.GBParameter)
+		Me.Controls.Add(Me.GBMother)
+		Me.Controls.Add(Me.BGAnalyze)
+		Me.Controls.Add(Me.GBImport)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Name = "FormDashboard"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FormDashboard"
-		Me.GBPerformance.ResumeLayout(False)
-		Me.TLPSUmmary.ResumeLayout(False)
-		Me.PnSalesToday.ResumeLayout(False)
-		Me.PnSalesToday.PerformLayout()
-		Me.PnProcessToday.ResumeLayout(False)
-		Me.PnProcessToday.PerformLayout()
-		Me.PnLastSales.ResumeLayout(False)
-		Me.PnLastSales.PerformLayout()
-		Me.PnOrderToday.ResumeLayout(False)
-		Me.PnOrderToday.PerformLayout()
+		Me.GBImport.ResumeLayout(False)
+		Me.BGAnalyze.ResumeLayout(False)
+		Me.GBMother.ResumeLayout(False)
 		Me.GroupBox1.ResumeLayout(False)
-		CType(Me.DGVDone, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.MPCheckingOrderBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.INVDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.DGVBestDay, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.GBBestCustomer.ResumeLayout(False)
+		CType(Me.DGVLoyalCust, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.GBKat.ResumeLayout(False)
+		CType(Me.DGVBestKat, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.GBAuthor.ResumeLayout(False)
+		CType(Me.DGVBestAuthor, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.GBBestSeller.ResumeLayout(False)
+		CType(Me.DGVBestSeller, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.GBParameter.ResumeLayout(False)
+		Me.GBParameter.PerformLayout()
 		Me.ResumeLayout(False)
 
 	End Sub
-
-	Friend WithEvents GBPerformance As GroupBox
-	Friend WithEvents MonthCalendar As MonthCalendar
-	Friend WithEvents TLPSUmmary As TableLayoutPanel
-	Friend WithEvents PnSalesToday As Panel
-	Friend WithEvents PnProcessToday As Panel
-	Friend WithEvents PnLastSales As Panel
-	Friend WithEvents PnOrderToday As Panel
+	Friend WithEvents BtImport As Button
+	Friend WithEvents BtAnalyze As Button
+	Friend WithEvents GBImport As GroupBox
+	Friend WithEvents BGAnalyze As GroupBox
+	Friend WithEvents GBMother As GroupBox
+	Friend WithEvents GBBestSeller As GroupBox
+	Friend WithEvents GBAuthor As GroupBox
+	Friend WithEvents DGVBestSeller As DataGridView
+	Friend WithEvents GBKat As GroupBox
+	Friend WithEvents DGVBestKat As DataGridView
+	Friend WithEvents DGVBestAuthor As DataGridView
+	Friend WithEvents GBParameter As GroupBox
+	Friend WithEvents CBEndMonthly As ComboBox
+	Friend WithEvents CBStartMonthly As ComboBox
+	Friend WithEvents CBMonthly As ComboBox
+	Friend WithEvents RBSpecific As RadioButton
+	Friend WithEvents RBMonthly As RadioButton
+	Friend WithEvents RBALL As RadioButton
+	Public WithEvents LbEndMonth As Label
+	Public WithEvents LbStartMonth As Label
 	Friend WithEvents GroupBox1 As GroupBox
-	Friend WithEvents DGVDone As DataGridView
-	Friend WithEvents INVDataSet As INVDataSet
-	Friend WithEvents MPCheckingOrderBindingSource As BindingSource
-	Friend WithEvents MP_CheckingOrderTableAdapter As INVDataSetTableAdapters.MP_CheckingOrderTableAdapter
-	Friend WithEvents MPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents InvoiceOrderIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents ResiDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents JudulDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents TanggalSeleseiDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Public WithEvents LbNominalSales As Label
-	Public WithEvents LbSales As Label
-	Public WithEvents LbJmlDiproses As Label
-	Public WithEvents LbDiproses As Label
-	Friend WithEvents LbNominalLastSales As Label
-	Public WithEvents LbTglLastSales As Label
-	Public WithEvents LbLastSales As Label
-	Friend WithEvents LbPesanan As Label
-	Public WithEvents LbOrderToday As Label
+	Friend WithEvents DGVBestDay As DataGridView
+	Friend WithEvents GBBestCustomer As GroupBox
+	Friend WithEvents DGVLoyalCust As DataGridView
+	Public WithEvents LbUntil As Label
+	Friend WithEvents LbTest As Label
 End Class

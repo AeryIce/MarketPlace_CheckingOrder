@@ -37,6 +37,11 @@ MarketPlace_CheckingOrder
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.close_window_24px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.close_window_32px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -87,7 +92,22 @@ MarketPlace_CheckingOrder
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.learning_50px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.maximize_window_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.maximize_window_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MarketPlace_CheckingOrder.My.Resources.Resources.minimize_window_24px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

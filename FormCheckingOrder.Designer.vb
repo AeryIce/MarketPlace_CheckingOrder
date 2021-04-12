@@ -24,8 +24,10 @@ Partial Class FormCheckingOrder
 	Private Sub InitializeComponent()
 		Me.ComboBoxPilihMP = New System.Windows.Forms.ComboBox()
 		Me.GroupBoxCariOrderId = New System.Windows.Forms.GroupBox()
+		Me.ButtonCariISBN = New System.Windows.Forms.Button()
 		Me.TextBoxScanIsbn = New System.Windows.Forms.TextBox()
 		Me.GroupBoxImport = New System.Windows.Forms.GroupBox()
+		Me.ButtonImport = New System.Windows.Forms.Button()
 		Me.GroupBoxCheckingOrder = New System.Windows.Forms.GroupBox()
 		Me.DGV_MPCheckingOrder = New System.Windows.Forms.DataGridView()
 		Me.ButtonExit = New System.Windows.Forms.Button()
@@ -35,8 +37,6 @@ Partial Class FormCheckingOrder
 		Me.RBTokopedia = New System.Windows.Forms.RadioButton()
 		Me.RBShopee = New System.Windows.Forms.RadioButton()
 		Me.RBSemua = New System.Windows.Forms.RadioButton()
-		Me.ButtonImport = New System.Windows.Forms.Button()
-		Me.ButtonCariISBN = New System.Windows.Forms.Button()
 		Me.GroupBoxCariOrderId.SuspendLayout()
 		Me.GroupBoxImport.SuspendLayout()
 		Me.GroupBoxCheckingOrder.SuspendLayout()
@@ -65,6 +65,15 @@ Partial Class FormCheckingOrder
 		Me.GroupBoxCariOrderId.TabStop = False
 		Me.GroupBoxCariOrderId.Text = "Scan Barcode ISBN"
 		'
+		'ButtonCariISBN
+		'
+		Me.ButtonCariISBN.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.search_16px
+		Me.ButtonCariISBN.Location = New System.Drawing.Point(218, 19)
+		Me.ButtonCariISBN.Name = "ButtonCariISBN"
+		Me.ButtonCariISBN.Size = New System.Drawing.Size(28, 31)
+		Me.ButtonCariISBN.TabIndex = 1
+		Me.ButtonCariISBN.UseVisualStyleBackColor = True
+		'
 		'TextBoxScanIsbn
 		'
 		Me.TextBoxScanIsbn.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -83,6 +92,18 @@ Partial Class FormCheckingOrder
 		Me.GroupBoxImport.TabIndex = 2
 		Me.GroupBoxImport.TabStop = False
 		Me.GroupBoxImport.Text = "Import File"
+		'
+		'ButtonImport
+		'
+		Me.ButtonImport.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.add_file_32px
+		Me.ButtonImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.ButtonImport.Location = New System.Drawing.Point(175, 15)
+		Me.ButtonImport.Name = "ButtonImport"
+		Me.ButtonImport.Size = New System.Drawing.Size(103, 43)
+		Me.ButtonImport.TabIndex = 0
+		Me.ButtonImport.Text = "Import Data"
+		Me.ButtonImport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.ButtonImport.UseVisualStyleBackColor = True
 		'
 		'GroupBoxCheckingOrder
 		'
@@ -181,27 +202,6 @@ Partial Class FormCheckingOrder
 		Me.RBSemua.TabStop = True
 		Me.RBSemua.Text = "Semua"
 		Me.RBSemua.UseVisualStyleBackColor = True
-		'
-		'ButtonImport
-		'
-		Me.ButtonImport.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.add_file_32px
-		Me.ButtonImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.ButtonImport.Location = New System.Drawing.Point(175, 15)
-		Me.ButtonImport.Name = "ButtonImport"
-		Me.ButtonImport.Size = New System.Drawing.Size(103, 43)
-		Me.ButtonImport.TabIndex = 0
-		Me.ButtonImport.Text = "Import Data"
-		Me.ButtonImport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		Me.ButtonImport.UseVisualStyleBackColor = True
-		'
-		'ButtonCariISBN
-		'
-		Me.ButtonCariISBN.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.search_16px
-		Me.ButtonCariISBN.Location = New System.Drawing.Point(218, 19)
-		Me.ButtonCariISBN.Name = "ButtonCariISBN"
-		Me.ButtonCariISBN.Size = New System.Drawing.Size(28, 31)
-		Me.ButtonCariISBN.TabIndex = 1
-		Me.ButtonCariISBN.UseVisualStyleBackColor = True
 		'
 		'FormCheckingOrder
 		'

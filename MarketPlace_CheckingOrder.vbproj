@@ -11,8 +11,9 @@
     <AssemblyName>MarketPlace_CheckingOrder</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,6 +47,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>store_market_icon_182982.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
@@ -56,6 +60,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -99,6 +104,12 @@
     <Compile Include="FormDashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormDetailedBuku.Designer.vb">
+      <DependentUpon>FormDetailedBuku.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetailedBuku.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormHome.Designer.vb">
       <DependentUpon>FormHome.vb</DependentUpon>
     </Compile>
@@ -109,6 +120,12 @@
       <DependentUpon>FormImportACCPAC.vb</DependentUpon>
     </Compile>
     <Compile Include="FormImportACCPAC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoading.Designer.vb">
+      <DependentUpon>FormLoading.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoading.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormValidasi.Designer.vb">
@@ -156,11 +173,17 @@
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDetailedBuku.resx">
+      <DependentUpon>FormDetailedBuku.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormImportACCPAC.resx">
       <DependentUpon>FormImportACCPAC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoading.resx">
+      <DependentUpon>FormLoading.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormValidasi.resx">
       <DependentUpon>FormValidasi.vb</DependentUpon>
@@ -231,6 +254,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close_window_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_window_24px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximize_window_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize_window_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\learning_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="store_market_icon_182982.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

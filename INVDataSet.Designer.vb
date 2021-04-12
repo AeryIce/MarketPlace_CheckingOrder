@@ -297,7 +297,7 @@ Partial Public Class INVDataSet
         
         Private columnProses_Status As Global.System.Data.DataColumn
         
-        Private columnTanggal_Selesei As Global.System.Data.DataColumn
+        Private columnTanggal_Selesai As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -392,9 +392,9 @@ Partial Public Class INVDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Tanggal_SeleseiColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Tanggal_SelesaiColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnTanggal_Selesei
+                Return Me.columnTanggal_Selesai
             End Get
         End Property
         
@@ -435,9 +435,9 @@ Partial Public Class INVDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddMP_CheckingOrderRow(ByVal MP As String, ByVal Invoice_OrderID As String, ByVal Resi As String, ByVal Judul As String, ByVal Harga As Decimal, ByVal Courrier As String, ByVal Proses_Status As String, ByVal Tanggal_Selesei As Date) As MP_CheckingOrderRow
+        Public Overloads Function AddMP_CheckingOrderRow(ByVal MP As String, ByVal Invoice_OrderID As String, ByVal Resi As String, ByVal Judul As String, ByVal Harga As Decimal, ByVal Courrier As String, ByVal Proses_Status As String, ByVal Tanggal_Selesai As Date) As MP_CheckingOrderRow
             Dim rowMP_CheckingOrderRow As MP_CheckingOrderRow = CType(Me.NewRow,MP_CheckingOrderRow)
-            Dim columnValuesArray() As Object = New Object() {MP, Invoice_OrderID, Resi, Judul, Harga, Courrier, Proses_Status, Tanggal_Selesei}
+            Dim columnValuesArray() As Object = New Object() {MP, Invoice_OrderID, Resi, Judul, Harga, Courrier, Proses_Status, Tanggal_Selesai}
             rowMP_CheckingOrderRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowMP_CheckingOrderRow)
             Return rowMP_CheckingOrderRow
@@ -467,7 +467,7 @@ Partial Public Class INVDataSet
             Me.columnHarga = MyBase.Columns("Harga")
             Me.columnCourrier = MyBase.Columns("Courrier")
             Me.columnProses_Status = MyBase.Columns("Proses_Status")
-            Me.columnTanggal_Selesei = MyBase.Columns("Tanggal_Selesei")
+            Me.columnTanggal_Selesai = MyBase.Columns("Tanggal_Selesai")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -487,8 +487,8 @@ Partial Public Class INVDataSet
             MyBase.Columns.Add(Me.columnCourrier)
             Me.columnProses_Status = New Global.System.Data.DataColumn("Proses_Status", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnProses_Status)
-            Me.columnTanggal_Selesei = New Global.System.Data.DataColumn("Tanggal_Selesei", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTanggal_Selesei)
+            Me.columnTanggal_Selesai = New Global.System.Data.DataColumn("Tanggal_Selesai", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTanggal_Selesai)
             Me.columnMP.MaxLength = 100
             Me.columnInvoice_OrderID.MaxLength = 100
             Me.columnResi.MaxLength = 100
@@ -746,16 +746,16 @@ Partial Public Class INVDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Tanggal_Selesei() As Date
+        Public Property Tanggal_Selesai() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableMP_CheckingOrder.Tanggal_SeleseiColumn),Date)
+                    Return CType(Me(Me.tableMP_CheckingOrder.Tanggal_SelesaiColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Tanggal_Selesei' in table 'MP_CheckingOrder' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Tanggal_Selesai' in table 'MP_CheckingOrder' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableMP_CheckingOrder.Tanggal_SeleseiColumn) = value
+                Me(Me.tableMP_CheckingOrder.Tanggal_SelesaiColumn) = value
             End Set
         End Property
         
@@ -845,14 +845,14 @@ Partial Public Class INVDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsTanggal_SeleseiNull() As Boolean
-            Return Me.IsNull(Me.tableMP_CheckingOrder.Tanggal_SeleseiColumn)
+        Public Function IsTanggal_SelesaiNull() As Boolean
+            Return Me.IsNull(Me.tableMP_CheckingOrder.Tanggal_SelesaiColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetTanggal_SeleseiNull()
-            Me(Me.tableMP_CheckingOrder.Tanggal_SeleseiColumn) = Global.System.Convert.DBNull
+        Public Sub SetTanggal_SelesaiNull()
+            Me(Me.tableMP_CheckingOrder.Tanggal_SelesaiColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1029,7 +1029,7 @@ Namespace INVDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Harga", "Harga")
             tableMapping.ColumnMappings.Add("Courrier", "Courrier")
             tableMapping.ColumnMappings.Add("Proses_Status", "Proses_Status")
-            tableMapping.ColumnMappings.Add("Tanggal_Selesei", "Tanggal_Selesei")
+            tableMapping.ColumnMappings.Add("Tanggal_Selesei", "Tanggal_Selesai")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection

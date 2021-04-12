@@ -24,17 +24,18 @@ Partial Class FormImportACCPAC
 	Private Sub InitializeComponent()
 		Me.gbImport = New System.Windows.Forms.GroupBox()
 		Me.cbMP = New System.Windows.Forms.ComboBox()
+		Me.btImport = New System.Windows.Forms.Button()
 		Me.pnMinimizeMaximizeClose = New System.Windows.Forms.Panel()
 		Me.btClose = New System.Windows.Forms.Button()
 		Me.btMaximize = New System.Windows.Forms.Button()
 		Me.btMinimize = New System.Windows.Forms.Button()
-		Me.btImport = New System.Windows.Forms.Button()
 		Me.gbImport.SuspendLayout()
 		Me.pnMinimizeMaximizeClose.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'gbImport
 		'
+		Me.gbImport.Anchor = System.Windows.Forms.AnchorStyles.None
 		Me.gbImport.Controls.Add(Me.cbMP)
 		Me.gbImport.Controls.Add(Me.btImport)
 		Me.gbImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -46,12 +47,24 @@ Partial Class FormImportACCPAC
 		'
 		'cbMP
 		'
+		Me.cbMP.Anchor = System.Windows.Forms.AnchorStyles.None
 		Me.cbMP.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cbMP.FormattingEnabled = True
 		Me.cbMP.Location = New System.Drawing.Point(48, 66)
 		Me.cbMP.Name = "cbMP"
 		Me.cbMP.Size = New System.Drawing.Size(142, 33)
 		Me.cbMP.TabIndex = 1
+		'
+		'btImport
+		'
+		Me.btImport.Anchor = System.Windows.Forms.AnchorStyles.None
+		Me.btImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btImport.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.cloud_sync_30px
+		Me.btImport.Location = New System.Drawing.Point(83, 105)
+		Me.btImport.Name = "btImport"
+		Me.btImport.Size = New System.Drawing.Size(77, 34)
+		Me.btImport.TabIndex = 0
+		Me.btImport.UseVisualStyleBackColor = True
 		'
 		'pnMinimizeMaximizeClose
 		'
@@ -67,6 +80,7 @@ Partial Class FormImportACCPAC
 		'
 		'btClose
 		'
+		Me.btClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.btClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btClose.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.close_window_32px1
 		Me.btClose.Location = New System.Drawing.Point(765, 5)
@@ -77,6 +91,7 @@ Partial Class FormImportACCPAC
 		'
 		'btMaximize
 		'
+		Me.btMaximize.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.btMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btMaximize.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.maximize_window_32px
 		Me.btMaximize.Location = New System.Drawing.Point(726, 5)
@@ -87,6 +102,7 @@ Partial Class FormImportACCPAC
 		'
 		'btMinimize
 		'
+		Me.btMinimize.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.btMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btMinimize.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.minimize_window_32px
 		Me.btMinimize.Location = New System.Drawing.Point(687, 5)
@@ -94,16 +110,6 @@ Partial Class FormImportACCPAC
 		Me.btMinimize.Size = New System.Drawing.Size(33, 31)
 		Me.btMinimize.TabIndex = 3
 		Me.btMinimize.UseVisualStyleBackColor = True
-		'
-		'btImport
-		'
-		Me.btImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btImport.Image = Global.MarketPlace_CheckingOrder.My.Resources.Resources.cloud_sync_30px
-		Me.btImport.Location = New System.Drawing.Point(83, 105)
-		Me.btImport.Name = "btImport"
-		Me.btImport.Size = New System.Drawing.Size(77, 34)
-		Me.btImport.TabIndex = 0
-		Me.btImport.UseVisualStyleBackColor = True
 		'
 		'FormImportACCPAC
 		'
@@ -130,4 +136,33 @@ Partial Class FormImportACCPAC
 	Friend WithEvents btMinimize As Button
 	Friend WithEvents btMaximize As Button
 	Friend WithEvents btClose As Button
+
+	Private Sub FormImportACCPAC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		cbMP.Items.Add("Tokopedia")
+		cbMP.Items.Add("Shopee")
+		cbMP.Items.Add("JDID")
+		cbMP.Items.Add("Lazada")
+	End Sub
+
+	Private Sub btClose_Click(sender As Object, e As EventArgs) Handles btClose.Click
+		Me.Close()
+	End Sub
+
+	Private Sub btMinimize_Click(sender As Object, e As EventArgs) Handles btMinimize.Click
+		Me.WindowState = FormWindowState.Minimized
+	End Sub
+
+	Private Sub btMaximize_Click(sender As Object, e As EventArgs) Handles btMaximize.Click
+		If Me.WindowState = FormWindowState.Maximized Then
+
+			Me.Width = 800
+			Me.Height = 450
+			Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+			Me.Refresh()
+
+
+		End If
+		Me.WindowState = FormWindowState.Maximized
+	End Sub
+
 End Class

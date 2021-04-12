@@ -43,7 +43,7 @@ WHERE        (Proses_Status LIKE '%Selesai%')</CommandText>
               <Mapping SourceColumn="Harga" DataSetColumn="Harga" />
               <Mapping SourceColumn="Courrier" DataSetColumn="Courrier" />
               <Mapping SourceColumn="Proses_Status" DataSetColumn="Proses_Status" />
-              <Mapping SourceColumn="Tanggal_Selesei" DataSetColumn="Tanggal_Selesei" />
+              <Mapping SourceColumn="Tanggal_Selesei" DataSetColumn="Tanggal_Selesai" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="INVConnectionString (MySettings)" DbObjectName="INV.dbo.MP_CheckingOrder" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -64,7 +64,7 @@ WHERE        (Proses_Status LIKE '%Selesai%')</CommandText>
   <xs:element name="INVDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="INVDataSet" msprop:Generator_UserDSName="INVDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="MP_CheckingOrder" msprop:Generator_TableClassName="MP_CheckingOrderDataTable" msprop:Generator_TableVarName="tableMP_CheckingOrder" msprop:Generator_RowChangedName="MP_CheckingOrderRowChanged" msprop:Generator_TablePropName="MP_CheckingOrder" msprop:Generator_RowDeletingName="MP_CheckingOrderRowDeleting" msprop:Generator_RowChangingName="MP_CheckingOrderRowChanging" msprop:Generator_RowEvHandlerName="MP_CheckingOrderRowChangeEventHandler" msprop:Generator_RowDeletedName="MP_CheckingOrderRowDeleted" msprop:Generator_RowClassName="MP_CheckingOrderRow" msprop:Generator_UserTableName="MP_CheckingOrder" msprop:Generator_RowEvArgName="MP_CheckingOrderRowChangeEvent">
+        <xs:element name="MP_CheckingOrder" msprop:Generator_TableClassName="MP_CheckingOrderDataTable" msprop:Generator_TableVarName="tableMP_CheckingOrder" msprop:Generator_TablePropName="MP_CheckingOrder" msprop:Generator_RowDeletingName="MP_CheckingOrderRowDeleting" msprop:Generator_RowChangingName="MP_CheckingOrderRowChanging" msprop:Generator_RowEvHandlerName="MP_CheckingOrderRowChangeEventHandler" msprop:Generator_RowDeletedName="MP_CheckingOrderRowDeleted" msprop:Generator_UserTableName="MP_CheckingOrder" msprop:Generator_RowChangedName="MP_CheckingOrderRowChanged" msprop:Generator_RowEvArgName="MP_CheckingOrderRowChangeEvent" msprop:Generator_RowClassName="MP_CheckingOrderRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MP" msprop:Generator_ColumnVarNameInTable="columnMP" msprop:Generator_ColumnPropNameInRow="MP" msprop:Generator_ColumnPropNameInTable="MPColumn" msprop:Generator_UserColumnName="MP" minOccurs="0">
@@ -110,7 +110,7 @@ WHERE        (Proses_Status LIKE '%Selesai%')</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Tanggal_Selesei" msprop:Generator_ColumnVarNameInTable="columnTanggal_Selesei" msprop:Generator_ColumnPropNameInRow="Tanggal_Selesei" msprop:Generator_ColumnPropNameInTable="Tanggal_SeleseiColumn" msprop:Generator_UserColumnName="Tanggal_Selesei" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Tanggal_Selesai" msprop:Generator_ColumnVarNameInTable="columnTanggal_Selesai" msprop:Generator_ColumnPropNameInRow="Tanggal_Selesai" msprop:Generator_ColumnPropNameInTable="Tanggal_SelesaiColumn" msprop:Generator_UserColumnName="Tanggal_Selesai" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

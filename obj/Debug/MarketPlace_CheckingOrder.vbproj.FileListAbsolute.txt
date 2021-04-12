@@ -20,9 +20,6 @@ E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.e
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.xml
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.pdb
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.exe.config
-E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\bin\Debug\Microsoft.Office.Interop.Excel.dll
-E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbproj.CopyComplete
-E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbprojAssemblyReference.cache
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormValidasi.resources
 D:\VisualBasic\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.exe.config
 D:\VisualBasic\MarketPlace_CheckingOrder\bin\Debug\MarketPlace_CheckingOrder.exe
@@ -47,3 +44,6 @@ D:\VisualBasic\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.For
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormAdmin.resources
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormAutoComplete.resources
 E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormImportACCPAC.resources
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.vbprojAssemblyReference.cache
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormLoading.resources
+E:\WORK\PERIPLUS\MarketPlace_CheckingOrder\obj\Debug\MarketPlace_CheckingOrder.FormDetailedBuku.resources

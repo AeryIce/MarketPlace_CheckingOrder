@@ -9,11 +9,11 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("MarketPlace_CheckingOrder")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("To Store,Reporting, And Analyze Marketplace Transaction")>
+<Assembly: AssemblyCompany("PT. JAVABOOKS INDONESIA")>
 <Assembly: AssemblyProduct("MarketPlace_CheckingOrder")>
 <Assembly: AssemblyCopyright("Copyright ©  2020")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyTrademark("AeryIce")>
 
 <Assembly: ComVisible(False)>
 
